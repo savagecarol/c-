@@ -29,8 +29,12 @@ while(t-->0)
 
 vector<int> linear(int hashSize,int arr[],int N)
 {
-    vector<int> s(hashSize);
-    fill(s.begin(), s.end(),-1);
+    vector<int> s;
+
+    for(int i=0;i<hashSize;i++)
+    {
+        s.push_back(-1);
+    }
     int key;
     for(int i=0;i<N;i++)
     {
