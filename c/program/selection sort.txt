@@ -1,0 +1,57 @@
+/*
+PROGRAM FOR SELECTION SORT
+NAME: KARTIKEYA SHARMA  CLASS: CS-B
+ROLL NUMBER: 1803210076
+*/
+#include <stdio.h>
+main()
+{
+   int a[100], i, j, n, temp, min;
+
+   printf("Enter number of elements in array:\n");
+   scanf("%d", &n);
+
+   printf("Enter %d elements:\n", n);
+   for(i = 0; i < n; i++)
+   scanf("%d", &a[i]);
+
+
+  for (i = 0; i < n - 1; i++)
+  {
+    min = i;
+
+    for (j = i + 1; j < n; j++)
+    {
+      if (a[min] > a[j])
+        min = j;
+    }
+    if (min != i)
+    {
+      temp = a[i];
+      a[i] = a[min];
+      a[min] = temp;
+    }
+  }
+
+      printf("Sorted array is:\n");
+      for(i = 0; i < n; i++)
+        printf("%d ", a[i]);
+}
+
+/*
+Enter number of elements in array:
+7
+Enter 7 elements:
+2
+7
+6
+8
+3
+4
+1
+Sorted array is:
+1 2 3 4 6 7 8
+Process returned 0 (0x0)   execution time : 12.554 s
+Press any key to continue.
+
+*/

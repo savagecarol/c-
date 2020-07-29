@@ -1,0 +1,56 @@
+/*
+PROGRAM FOR INSERTION IN SORTED ARRAY
+NAME: KARTIKEYA SHARMA  CLASS: CS-B
+ROLL NUMBER: 1803210076
+*/
+#include<stdio.h>
+void main( )
+{
+    int a[20], n, x, i;
+
+    printf("Enter the size of the array:\n");
+    scanf("%d",&n);
+
+    printf("Enter elements of the array in the sorted order:\n");
+    for(i=0; i<n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter element to be inserted:\n");
+          scanf("%d", &x);
+
+          i = n-1;
+          while(x < a[i] && i >= 0)
+            {
+                a[i+1] = a[i];
+                 i--;
+            }
+            a[i+1] = x;
+            n++;
+
+            printf("After insertion array is:\n");
+            for(i = 0; i < n; i++)
+                printf("\n%d", a[i]);
+}
+
+
+/*
+Enter the size of the array:
+5
+Enter elements of the array in the sorted order:
+1
+2
+3
+5
+6
+Enter element to be inserted:
+4
+After insertion array is:
+1
+2
+3
+4
+5
+6
+Process returned 6 (0x6)   execution time : 6.875 s
+Press any key to continue.
+*/

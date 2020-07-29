@@ -1,0 +1,80 @@
+/*
+PROGRAM FOR QUICK SORT
+NAME: KARTIKEYA SHARMA  CLASS: CS-B
+ROLL NUMBER: 1803210076
+*/
+#include<stdio.h>
+void quicksort(int a[100],int first,int last)
+{
+   int i, j, pivot, temp;
+
+   if(first < last)
+    {
+      pivot = first;
+      i = first;
+      j = last;
+
+      while(i < j)
+        {
+         while(a[i] <= a[pivot] && i<last)
+            i++;
+
+         while(a[j] > a[pivot])
+            j--;
+
+         if(i < j)
+         {
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+         }
+      }
+
+      temp = a[pivot];
+      a[pivot] = a[j];
+      a[j] = temp;
+      quicksort(a, first, j-1);
+      quicksort(a, j+1, last);
+
+   }
+}
+
+int main()
+{
+   int i, n, a[100];
+
+   printf("Enter number of elements in array:\n");
+   scanf("%d", &n);
+
+   printf("Enter %d elements:\n", n);
+   for(i = 0; i < n; i++)
+   scanf("%d", &a[i]);
+
+
+
+   quicksort(a, 0, n-1);
+
+   printf("Order of Sorted elements: ");
+   for(i = 0; i < n; i++)
+      printf(" %d", a[i]);
+
+   return 0;
+}
+
+/*
+Enter number of elements in array:
+8
+Enter 8 elements:
+6
+4
+8
+-4
+0
+1
+3
+2
+Order of Sorted elements:  -4 0 1 2 3 4 6 8
+Process returned 0 (0x0)   execution time : 19.274 s
+Press any key to continue.
+
+*/

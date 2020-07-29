@@ -1,0 +1,46 @@
+/*
+PROGRAM FOR ARRAY TRANSVERSAL
+NAME: KARTIKEYA SHARMA  CLASS: CS-B
+ROLL NUMBER: 1803210076
+*/
+#include <stdio.h>
+main()
+{
+   int a[100], position, i, n, value;
+
+   printf("Enter number of elements in array:\n");
+   scanf("%d", &n);
+
+   printf("Enter %d elements:\n", n);
+
+   for (i = 0; i < n; i++)
+      scanf("%d", &a[i]);
+
+      printf("Displaying th array:\n");
+
+      for(i =0; i < n; i++)
+        printf("array element at [%d] = %d\n", i, a[i]);
+
+}
+
+/*
+Enter number of elements in array:
+5
+Enter 5 elements:
+1
+2
+3
+4
+5
+Displaying th array:
+array element at [0] = 1
+array element at [1] = 2
+array element at [2] = 3
+array element at [3] = 4
+array element at [4] = 5
+
+Process returned 0 (0x0)   execution time : 4.370 s
+Press any key to continue.
+*/
+
+

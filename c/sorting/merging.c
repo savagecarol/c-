@@ -1,0 +1,1 @@
+/* proegram of finding set a */

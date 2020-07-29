@@ -1,0 +1,60 @@
+/*
+PROGRAM FOR FINDING ELEMENTS OF 
+SET A THAT BELONGS TO SET B
+NAME: KARTIKEYA SHARMA  CLASS: CS-B
+ROLL NUMBER: 1803210076
+*/
+
+#include<stdio.h>
+
+main()
+{
+	int a1[20], a2[20], i, j, n, m;
+
+	printf("Enter size of first array:\n");
+	scanf("%d",&n);
+	printf("Enter elements of first array:\n");
+	for(i = 0; i < n; i++)
+        scanf("%d", &a1[i]);
+
+        printf("\nEnter size of second array:\n");
+	scanf("%d",&m);
+	printf("Enter elements of second array:\n");
+	for(i = 0; i < m; i++)
+        scanf("%d", &a2[i]);
+
+        printf("Elements of array A that belongs to array B:\n");
+
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<m;j++)
+            {
+                if(a1[i]==a2[j])
+                    printf("%d ", a1[i]);
+            }
+        }
+}
+
+
+/*
+Enter size of first array:
+5
+Enter elements of first array:
+1
+2
+3
+4
+5
+
+Enter size of second array:
+4
+Enter elements of second array:
+1
+2
+6
+7
+Elements of array A that belongs to array B:
+1 2
+Process returned 0 (0x0)   execution time : 13.673 s
+Press any key to continue.
+*/
