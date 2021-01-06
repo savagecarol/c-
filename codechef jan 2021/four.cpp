@@ -10,6 +10,8 @@ void alice()
 
 void bob()
 {
+
+    
     cout<<"Bob"<<endl;
     
 }
