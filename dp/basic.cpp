@@ -22,28 +22,11 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
+/* code */
 void solve()
 {
     
-      		int n;
-     		cin >> n;
-	 	    int arr[n];
-	     	inp(i,n,arr);
-			
-			cout << -1 <<" ";
-			
-			int value = arr[0];
-
-			for(int i=1;i<n; i++)
-			{
-				if(arr[i] > value)
-					{
-						cout << value << " ";
-						value = arr[i];
-					}
-				else
-					cout << -1 << " ";
-			}
+	
 }
 
 int main() {
