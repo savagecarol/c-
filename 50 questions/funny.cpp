@@ -23,10 +23,45 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 /* code */
+
+void Funny()
+{
+    cout << "Funny" ;
+}
+
+void NotFunny()
+{
+    cout << "Not Funny" ;
+}
+
+
+
+
+
+
 void solve()
 {
-    
+
+	string s1;
+	cin >> s1;
+	 int n = s1.length();
+
+	string s2="";
+ 	for (int i=s1.length()-1; i>=0; i--) 
+      s2+=s1[i];
+
 	
+	for(int i=0;i<n-1;i++)
+	{
+		if( abs(s1[i+1] - s1[i]) != abs(s2[i+1] - s2[i]))
+		{
+			cout << s1[i+1] - s1[i];
+			NotFunny();
+			return;
+		}
+	}
+	Funny();
+	return;
 }
 
 int main() {
