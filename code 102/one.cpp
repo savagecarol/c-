@@ -15,6 +15,7 @@ void yes()
     cout << "YES" << endl; 
 }
 
+
 void no()
 {
     cout << "NO" << endl; 
