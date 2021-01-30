@@ -30,23 +30,29 @@ void solve()
      ll k;
     cin >> n; 
     cin >> k;
+    ll arr[n];
 
-    if(k>=n)
-    {
-        if(k%n==0) 
-            cout << k/n;
-        else
-            cout << k/n + 1; 
-        return;
-    }
-    else if(k<n)
-    {     
-        if(n%k==0)
-            cout<<1;
-        else
-            cout<<2;
-        return;    
-    }
+    
+    for(ll i=0 ; i < n ; i++)
+        cin >> arr[i] ;
+    
+    ll sum = arr[0];
+
+    float val = float(k) / 100;
+    for(ll i=1;i<n;i++)
+        {
+         sum = sum + arr[i];
+        while(       > val )
+            {
+
+
+
+            }
+
+
+
+
+        }
 }
 
 int main() 
