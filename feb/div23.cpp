@@ -22,72 +22,56 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-
-vector<pair<int , int>> countFreq(int arr[], int n) 
+bool palindrome(char str[]) 
 { 
-    // Mark all array elements as not visited 
-    vector<bool> visited(n, false); 
-  vector<pair<int , int>> d ;
-    // Traverse through array elements and 
-    // count frequencies 
-    for (int i = 0; i < n; i++) { 
-  
-        // Skip this element if already processed 
-        if (visited[i] == true) 
-            continue; 
-  
-        // Count frequency 
-        int count = 1; 
-        for (int j = i + 1; j < n; j++) { 
-            if (arr[i] == arr[j]) { 
-                visited[j] = true; 
-                count++; 
-            } 
+    int l = 0; 
+    int h = strlen(str) - 1; 
+
+    while (h > l) 
+    { 
+        if (str[l++] != str[h--]) 
+        {
+            return false; 
         } 
-
-           d.push_back(make_pair(arr[i] , count));
-    
     } 
-
-
-
-
-
+        return true;
+} 
 
 
 /* code */
 void solve()
 {
-    int n , m;
-    cin >> n >> m;
-    int a[n];
-    int b[n];
-    int c[m];
-    inp(i , n , a);
-    inp(i , n , b);
-    inp(i , n , c);
+    int n ;
+    cin >> n ; 
 
-    vector<int> mk;
-
-    for(int i = 0 ; i < n ; i++)  
+        string s;
+        unordered_set<string> se ;
+        string arr[n];
+        char fir[n];    
+    for(int i=0;i<n;i++)
     {
-        if(a[i]!=b[i])
-            mk.push_back(a[i]);
+ 
+        cin >> s;
+        arr[i] = s;
+        se.insert(s);
+        fir[i] = s[0];
     }
 
-    if(mk.size()> m)
-        no();
-    if(mk.size() < m)
+    for(int i=0;i<n-1;i++)
     {
-        vector<pair<int , int>> p = countFreq(a , n);
+        char p = fir[i];
+        string t = arr[i];
+        for(int j =i+1 ; j < n ; j++)
+            {
+                char q = fir[j];
+                string l = arr[j];
 
-        vector<pair<int , int>> q = countFreq(c , m);
-        
-        
+                
+
+
+
+            }
     }
-
-
-
 
 }
 
