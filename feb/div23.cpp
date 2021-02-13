@@ -66,10 +66,6 @@ void solve()
                 char q = fir[j];
                 string l = arr[j];
 
-                
-
-
-
             }
     }
 

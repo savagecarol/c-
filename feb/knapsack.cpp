@@ -7,7 +7,7 @@ using namespace std;
 #define no() cout << "NO"
 #define one() cout << "1"
 #define two() cout << "0"
-#define ll long long int
+#define ll long lo ng int
 #define mp make_pair
 #define fi first
 #define se second
