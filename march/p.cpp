@@ -23,47 +23,24 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 
-bool isPowerOfTwo (ll x) 
-{ 
-    return x && (!(x&(x-1))); 
-} 
- 
 
-
-
-/* code */
 void solve()
 {
-    ll n ;
+    ll n , k;
     cin >> n ;
+    cin >> k ;
 
-    ll a , ll b ;
-    ll p = 0 , q = 0;
-    ll r = 0 , s = 0;
-    pair<ll> arr[n] ;
-    for( ll i = 0 ; i < n; i++ )
+    if(k%2==0)
+        cout << (n-k) + k/2;
+    for(ll i = 1 ; i <=n ; i++)
     {
-        cin >> a ; 
-        cin >> b;
-        arr[i] = make_pair(a , b);
-        p = min(p , a);
-        q = max(q , a);
-        r = min(r , b);
-        s = max(s , b);
+        if(i >k)
+         cout << i ;
     }
-
-vector<pair<ll , ll>> q = ;
-    for(ll i = p ; i <= q ; i++)
-    {
-        for(ll j = r ; j <= s ; j++)
+    for(ll i = 1; i <=k/2 ; i++)
         {
-
-            
-
-
+            cout << i ;
         }
-    }
-
 }
 
 
@@ -72,14 +49,17 @@ int main() {
 
 	ll t;
     cin>>t;
-
     while(t--)
 	{ 
 	   solve();
-       cout << endl;
-	
+       cout << endl;	
     }
     return 0 ;
 }
+
+
+
+
+
 
 

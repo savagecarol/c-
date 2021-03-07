@@ -1,1 +1,4 @@
-    // cout << endl ;
+   // if(i==k)
+        //     {
+        //         a.insert(i);
+        //     }
