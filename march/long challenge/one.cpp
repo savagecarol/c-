@@ -27,43 +27,41 @@ bool isPowerOfTwo (ll x)
 { 
     return x && (!(x&(x-1))); 
 } 
- 
 
+ll nextPowerOf2(ll n)  
+{  
+    ll p = 1;  
+    if (n && !(n & (n - 1)))  
+        return n;  
+    while (p < n)  
+       {
+            p <<= 1;
+       }      
+    return p;  
+}
 
 
 /* code */
 void solve()
 {
-    ll n ;
-    cin >> n ;
-
-    ll a , ll b ;
-    ll p = 0 , q = 0;
-    ll r = 0 , s = 0;
-    pair<ll> arr[n] ;
-    for( ll i = 0 ; i < n; i++ )
+    ll c ;
+    cin >> c ;
+    ll r = nextPowerOf2(c);
+    ll product = 0 ;
+    for(ll i = 0; i < r ; i++)
     {
-        cin >> a ; 
-        cin >> b;
-        arr[i] = make_pair(a , b);
-        p = min(p , a);
-        q = max(q , a);
-        r = min(r , b);
-        s = max(s , b);
-    }
-
-vector<pair<ll , ll>> q = ;
-    for(ll i = p ; i <= q ; i++)
-    {
-        for(ll j = r ; j <= s ; j++)
+        for(ll j = i+1 ;j<r;j++)
         {
-
-            
-
-
+            ll k = i^j;
+            if(k == c)
+                {
+                    cout << i << " " << j << " "<< i*j <<  endl ;
+                product = max(product , i*j);
+                }
+        
         }
     }
-
+    cout << product << endl ;
 }
 
 
@@ -81,5 +79,3 @@ int main() {
     }
     return 0 ;
 }
-
-
