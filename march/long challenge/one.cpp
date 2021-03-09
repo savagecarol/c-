@@ -41,27 +41,76 @@ ll nextPowerOf2(ll n)
 }
 
 
+vector<int> decToBinary(ll n) 
+{ 
+    int binaryNum[32]; 
+
+    int i = 0; 
+    vector<int> a;
+    while (n > 0) { 
+  
+        binaryNum[i] = n % 2; 
+        n = n / 2; 
+        i++; 
+    } 
+    for (int j = i - 1; j >= 0; j--) 
+        a.push_back(binaryNum[j]);
+    return a; 
+
+} 
+
+
+
+int togglebit(int n) 
+{ 
+    if (n == 0) 
+        return 1; 
+    int i = n; 
+    n |= n >> 1; 
+    n |= n >> 2; 
+    n |= n >> 4; 
+    n |= n >> 8; 
+    n |= n >> 16; 
+  
+    return i ^ n; 
+} 
+
+int XNOR(int num1, int num2) 
+{ 
+
+    if (num1 < num2) 
+        swap(num1, num2);  
+    num1 = togglebit(num1); 
+    
+    return num1 ^ num2; 
+} 
+
+ll arr[] = {1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912,1073741824};
+  
 /* code */
 void solve()
 {
     ll c ;
     cin >> c ;
-    ll r = nextPowerOf2(c);
-    ll product = 0 ;
-    for(ll i = 0; i < r ; i++)
+
+
+    int n = sizeof(arr)/sizeof(arr[0]); 
+    int i = 0 ;
+    for(i = 0 ; i<n;i++)
     {
-        for(ll j = i+1 ;j<r;j++)
-        {
-            ll k = i^j;
-            if(k == c)
-                {
-                    cout << i << " " << j << " "<< i*j <<  endl ;
-                product = max(product , i*j);
-                }
-        
-        }
+        if(c<arr[i])
+            break;
     }
-    cout << product << endl ;
+
+
+    for(int j = 0 ; j < arr[i] ; j++)
+    {
+            int k = XNOR(13 ,10);
+
+            cout << j << " " << k << endl ;        
+    }
+
+
 }
 
 
