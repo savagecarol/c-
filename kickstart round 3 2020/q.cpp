@@ -22,48 +22,36 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-  
-
+    ll n ;
 /* code */
 void solve()
 {
 
-     ll n ;
-    cin >> n;
+    cin >> n ;
     ll a[n];
     ll b[n];
-    ll c[n];
-    ll d[n];
-    for(ll i = 0 ; i <n ; i++)
+    for(ll i = 0 ; i <n; i++)
     {
         cin >> a[i];
-        cin >> b[i];
-        d[i] = b[i];
+        b[i]=0;
     }
-    for(ll i = 0 ; i < n; i++)
+    ll i = n-1;
+    ll curr = 0;
+    while( i >= 0 )
     {
-        cin >> c[i];
+        curr = max(curr , a[i]);
+        if(curr > 0)
+            {
+                b[i]=1;
+                curr--;
+            }
+            i--;
     }
 
-
-
-
-
-    for(ll i = 1 ; i < n; i++)
+    for(ll i = 0 ;i < n; i++)
     {
-       ll st_time = a[i]-b[i-1] + c[i];
-       if(ceil(abs(b[i]-a[i]/2) > b[i])
-       {
-
-       }
-       else
-       {
-           b[i]
-       }
-
-       a[i] = a[i] + c[i];
+        cout << b[i] << " ";
     }
-    cout << a[i];
 }
 
 int main() {
@@ -72,7 +60,7 @@ int main() {
     while(t--)
 	{ 
 	    solve();
-        cout << endl;
+       cout << endl;
     }
     return 0 ;
 }
