@@ -25,11 +25,30 @@ typedef pair<ll, ll> pll;
 /* code */
 void solve(ll d)
     {
-        ll n  , k , s;
-        cin >> n >> k >> s;
-        ll val1 = n + k ;
-        ll val2 = k + (k-s) + (n-s);  
-        cout << "Case #"<<d<< ": "<< min(val1 , val2) << endl;
+        ll n  , m;
+        cin >> n >> m;
+        ll count = 0;
+        for(ll i = n ; i <= m ; i++)
+        {
+            ll k = i;
+            ll p = floor(log10(i) + 1);
+            while(p>0)
+            {
+               int x = k %10;
+                k = k /10;
+                if((p%2  == 0 && x%2==0)||(p%2!=0 && x%2!=0))
+                {
+                    p--;   
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if(p==0)
+                count++;
+        }
+        cout << "Case #"<<d<< ": "<< count << endl;
     } 
 int main() {
     ll t;

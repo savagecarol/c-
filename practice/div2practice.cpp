@@ -23,20 +23,34 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 /* code */
-void solve(ll d)
+
+void solve()
     {
-        ll n  , k , s;
-        cin >> n >> k >> s;
-        ll val1 = n + k ;
-        ll val2 = k + (k-s) + (n-s);  
-        cout << "Case #"<<d<< ": "<< min(val1 , val2) << endl;
-    } 
+        ll n  , k ;
+        vector<ll> a; 
+        cin >> n >> k ;
+        ll x;
+        for(ll i = 0 ; i < n; i++)
+            {
+                cin >> x;
+                a.push_back(x);
+            }
+        ll j = 0;
+        while(j < k)
+            {
+                ll k = max_element(a.begin() , a.end());
+                        ll p = ceil( (a[j] + [N-j-1])/2);
+                        a.push_back(p);
+            }   
+        }
+    
+
 int main() {
     ll t;
     cin >> t;
     for(ll i =1 ; i <=t; i++)
-        {
-            solve(i);
+         {
+            solve();
         }
     return 0 ;
 }
