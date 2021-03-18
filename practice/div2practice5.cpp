@@ -23,44 +23,46 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 /* code */ 
+/* code */
+ll mexx(vector<ll> a)
+{
+    ll n = a.size();
+    for(ll i= 0 ; i < n ; i++)
+    {
+        if(a[i] > i)
+            return i;
+    }
+    return a[n-1] + 1;
+}
+
+
+
 
 void solve()
 {
-    ll n , a, b , c , p , q , r;
-     cin >> n >> a >> b >> c ;
-     if(n%a == 0 || n%b == 0 || n%c == 0)
-        {
-          zero();  
-          return ;
-        }
-     ll t;   
-     if(n > a )
-        {
-            t = n / a;
-            p = ((t+1) * a); 
-        }
-    else
-        p = a ;
-    if(n > b )
+    ll n;
+    cin >> n;
+    ll a[n];
+    stack<ll> p;
+    for(ll i = 0 ; i < n; i++)
+       {
+           cin  >> a[i];
+       }
+    sort(a , a+ n);
+    cout << a[0] << " " ;
+    for(ll i = 1 ; i < n ; i++)
     {
-            t = n / b;
-            q = ((t+1) * b); 
+        if(a[i-1] == a[i])
+            p.push(a[i]);
+        else
+            cout << a[i] << " ";
+    }  
 
-    }
-    else
-        q = b;
-    if(n > c )
+    while(!p.empty())
     {
-        t = n / c;
-        r = ((t+1) * c);
+        cout << p.top() << " ";
+        p.pop();
     }
-    else
-        r = c ;
-    
-
-    p = min(p , q);
-    p = min(p , r);
-    cout << p - n ;
 
 }
     
