@@ -22,44 +22,27 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-bool isSquare(long long x)
-{
-    if (x >= 0) {
-        long long sr = sqrt(x);
-        return (sr * sr == x);
-    }
-    return false;
-}
- 
+
+
 void solve()
 {
-    ll n  , k;
-    cin >> n >> k;
-    ll a[n];
-    for(ll i = 0 ; i< n; i++)
+    ll n , k1 , k2, w , b;
+    cin >> n >> k1 >> k2 >> w >> b;
+    ll k = k1 + k2; 
+    if(k/2 >= w)
     {
-        cin >> a[i];
+        ll total_cell = 2*n;
+        ll black = 2*n-k;
+        if(black/2>=b)
+            yes();
+        else
+            no();
     }
-    ll count = 1;
-    ll p = 0;
-    for(ll i = 1 ;i < n; i++)
+    else
     {
-        ll j = i - 1;
-        while(j >= p)
-        {
-            if(isSquare(a[i] * a[j]))
-                {
-                    count++;
-                    p=i;
-                }
-
-            j--;    
-        }
+        no();
     }
-    cout << count ;
 }
-
-
 int main() {
     ll t;
     cin >> t;
@@ -70,7 +53,3 @@ int main() {
         }
     return 0 ;
 }
-
-
-
-
