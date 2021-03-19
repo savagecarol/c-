@@ -26,28 +26,15 @@ typedef pair<ll, ll> pll;
 
 void solve()
 {
-    string s;
-    cin >> s;
-    ll n = s.length();
-    ll c1 = 0  ; 
-    bool var = true;
-    for(ll i = 0 ; i < n-1 ; i++)
+    ll n ;
+    ll a[n];
+    for(ll i = 0 ; i < n; i++)
     {
-        if(s[i] == '1' && s[i+1] == '1')
-        {
-            c1 = 1;
-        }
-        if(s[i] == '0' && s[i+1] == '0' && c1 ==1)
-        {
-            var = false;
-        }
+        cin >> a[i];
     }
-    if(var)
-        yes();
-    else    
-        no();
+    ll mov = 2 * n;
+      
 }
-
 int main() {
     ll t;
     cin >> t;
