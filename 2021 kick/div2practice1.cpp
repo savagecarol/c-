@@ -22,15 +22,26 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
+ll MAX = 10000000000;
 
 
-void solve(ll i)
+
+void solve(ll t)
 {
+    ll n;
+    cin >> n;
+    ll a[n];
 
 
+    for(ll i = 0 ; i < n; i++)
+    {
+        cin >> a[i];
+    }
 
+    vector<ll> p;
 
-cout << "Case #"<<i << ": ";
+    
+
 }
 
 int main() {
@@ -43,4 +54,6 @@ int main() {
         }
     return 0 ;
 }
+
+
 

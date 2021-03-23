@@ -22,15 +22,24 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
+  int a , b , c , d , m;
 
 
-void solve(ll i)
+
+
+
+void solve(ll t)
 {
-
-
-
-
-cout << "Case #"<<i << ": ";
+  
+    cin >> a >> b >> c >> d >> m ;
+    int w = b - a ;
+    float p = float(w) / float(m);
+    if(p >=  c && p <= d) 
+        {
+            one();
+            return;
+        }   
+        zero();
 }
 
 int main() {
@@ -43,4 +52,6 @@ int main() {
         }
     return 0 ;
 }
+
+
 

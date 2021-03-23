@@ -22,33 +22,50 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-
-
+  int a , b , c , d , m;
 void solve(ll t)
 {
-
-    ll n , k;
+    int n ; 
+    int k;
     cin >> n;
     cin >> k;
-    string s;
-    cin >> s;
-    string p = "";
-    ll i = 0;
-    for(i = n-1 ; i >=0; i--)
+    int a[n];
+    for(int i = 0 ; i < n ; i++)
+            { 
+                cin >> a[i];
+            }
+
+    int count = 0;
+    int i = 0;
+    for(i = 0 ; i <=(n-k) ; i++)
+        {
+            if(a[i] == 1 )
+                {
+                    a[i] = 0;
+                    count++;
+                }
+        }
+        
+    i--;
+    int r = i;
+    int one = 0;
+    for(int j = i ; j < n ; j++)
     {
-        p = p + s[i];
+        if(a[j] == 1)
+            one++;
+    }    
+
+    for(int j = r; j < n ; j++)
+    {
+        if(a[j] == 1)
+            {
+                count = count+one;
+                one = one - 1;
+            }
     }
-    ll c = n / 2;
-    ll count = 0 ;
-     i = 0;
-    while(i < c)
-    {   
-        if(s[i] != p[i])
-            count++;
-            i++;
+        cout << count;
     }
-        cout << "Case #"<<t << ": "<< abs(k - count) ;
-}
+
 int main() {
     ll t;
     cin >> t;
