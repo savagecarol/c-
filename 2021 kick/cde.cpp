@@ -22,13 +22,51 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-void solve(ll i)
+
+void solve(ll t)
 {
+    int n;
+    int k;
+    cin >> n >> k;
+    char s[n];
 
+    int i = 0 , j = n-1;
+    for(int i = 0 ; i < n ; i++)
+        cin >> s[i];
+    
+    int count = 0;
+    for( i = 0 ; i < n; i++ )    
+    {
+        if(s[i] == '*')
+                {
 
+                    s[i] ='X';
+                    count++;
+                    break;
+                }
+    }
 
+        for(j = n-1 ; j >=0; j-- )    
+    {
+        if(s[j] =='X')
+            {
+                cout << 1;
+                return;
+            }
 
+        if(s[j] == '*')
+                {
 
+                    s[j] ='X';
+                    count++;
+                    break;
+                    
+                }
+    }
+    if(j>i)
+     cout << count + (j-i)/ k;
+     else
+        cout << count ;
 }
 
 int main() {
