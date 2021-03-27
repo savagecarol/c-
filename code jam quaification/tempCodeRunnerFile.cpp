@@ -1,4 +1,4 @@
-void solve(ll t)
+void solve(int t)
 {
 	int n;
 	cin >> n;
@@ -30,7 +30,7 @@ void solve(ll t)
 				minn--;
 				k++;
 			}
-			
+
 	}
 	cout << "Case #" << t<<": "<<count ;
 }
