@@ -3,8 +3,8 @@
 using namespace std;
 
 /* predefined value */
-#define yes() cout << "Yes" 
-#define no() cout << "No"
+#define yes() cout << "YES" 
+#define no() cout << "NO"
 #define one() cout << "1"
 #define two() cout << "0"
 #define ll long long int
@@ -29,11 +29,11 @@ void solve()
     cin >> n;
     int m;
     cin >> m;    int a[n];
-    unordered_set<int> p;
+    unordered_map<int , int> p;
     for(int i = 0 ; i < n; i++)
     {
         cin >> a[i];
-        p.insert(a[i]);
+        p[a[i]]++;
     }
     if(p.size() < m)
     yes();
