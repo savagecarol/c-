@@ -22,55 +22,21 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-float s(float var)
-{
-    float value = (int)(var * 100 + .5);
-    return (float)value / 100;
-}
 
 void solve()
 {
     ll n , m , k;
-    cin >> n >> m >> k;
-
+    cin >> n >> m >> k;    
     ll a[n][m];
-    ll b[n][m];
-    ll c[n][m];
-
     ll count = 0 ;
     ll t;
     int i , j;
-    for(i = 0 ; i <n ; i++)
-    {
-        for( j = 0 ; j <m ; j++)
-        {
-            cin >> a[i][j];
-        }
-    }
-     for(i = 0 ; i <n ; i++)
-    {
-        int sum = 0;
-        for( j = 0 ; j <m ; j++)
-        {
-            sum = sum + a[i][j];
-            b[i][j] = sum; 
-        }
-    }
-    for(i = 0 ; i <n ; i++)
-    {
-        int sum = 0;
-        for( j = 0 ; j <m ; j++)
-        {
-            sum = sum + a[j][i];
-            c[j][i] = sum;
-        }
-    }
-    
-
     for( i = 0 ; i < n ;i++)
     {
         for( j = 0 ; j < m ; j++)
         {
+            cin>> a[i][j];
+
             if(a[i][j] >= k)
             {
                 t  = min(n-i , n-j);
@@ -79,6 +45,7 @@ void solve()
             }
         }
     }
+
     cout << count;
 }
 
