@@ -30,45 +30,22 @@ float s(float var)
 
 void solve()
 {
-    ll n  , k ;
-    cin >> n >> k;
-    char s[n];
-    for(ll i = 0 ; i < n ; i++ )
-        cin >> s[i];
-    
-    ll count = 0;
-    if(s[0] == '*')
-        count = 1;
-    
-    if(k ==1 && count == 1)
-       {
-            yes();
+  ll n;
+  cin >> n;
+  ll a[5] = {0 , 20 , 36 ,  51 , 60};
+      if(n<=4)
+        {
+            cout << a[n];
             return;
-       }
-
-    for( ll i = 1; i < n ; i++)
-        { 
-            if(s[i]!=s[i-1] && s[i] == '*')
-                {
-                    count=1;
-                }
-            
-            else if(s[i]== s[i-1] && s[i] == '*')
-                {
-                    count++;
-                }
-            else
-                count = 0;
-
-             if(count == k)
-               {
-                   yes();
-                    return;
-               }
         }
-    no();
-
+    ll p = n/4;
+    ll q = n%4;
+    ll t = p * 44 ;
+    ll r = a[q];
+    ll s = (4 - q) * 4;
+    cout << t + r + s; 
 }
+
 int main()
  {
      int t;
