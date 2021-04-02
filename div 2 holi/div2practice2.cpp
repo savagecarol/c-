@@ -25,15 +25,13 @@ typedef pair<ll, ll> pll;
 void solve()
 {
     ll n;
-    cin >> n;
+    cin >> n ;
     
 
 }
-
 int main() {
     ll t;
     cin >> t;
-    sieve();
     for(ll i =1 ; i <=t; i++)
          {
             solve();
