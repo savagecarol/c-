@@ -64,17 +64,16 @@ void solve()
     string s;
 	cin >> s;
 	ll n = bTD(s);
-	for(int i = 0 ; i <n; i++)
+	for(int i = 0 ; i<n; i++)
 	{
 		string r = dTB(i);
-
 		if(!isSubSequence(r , s))
 			{
 				cout << r;
 				return;
 			}
 	}
-	cout << -1;
+    cout << dTB(n+1);
 }
 int main() {
     ll t;
