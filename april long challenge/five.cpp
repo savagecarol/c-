@@ -25,9 +25,12 @@ typedef pair<ll, ll> pll;
 
 void solve()
 {
+
     ll n , m , k;
     cin >> n >> m >> k;    
     ll a[n][m];
+    ll b[n][m];
+    ll c[n][m];
     ll count = 0 ;
     ll t;
     int i , j;
@@ -36,15 +39,67 @@ void solve()
         for( j = 0 ; j < m ; j++)
         {
             cin>> a[i][j];
+        }
+    }
 
+
+    for( i = 0 ; i < n ;i++)
+    {
+        ll sum = 0;
+        for( j = 0 ; j < m ; j++)
+        {
+            sum = sum + a[i][j];
+            b[i][j] = sum;
+        }
+    }
+
+    for( i = 0 ; i < n ;i++)
+    {
+        ll sum = 0;
+        for( j = 0 ; j < m ; j++)
+        {
+            sum = sum + b[j][i];
+            c[j][i] = sum;
+        }
+    }
+
+    for( i = 0 ; i < n ;i++)
+    {
+        for( j = 0 ; j < m ; j++)
+        {
+            
             if(a[i][j] >= k)
             {
                 t  = min(n-i , n-j);
                 count = count + t;
-                cout << count;
             }
         }
     }
+
+    
+    for( i = 0 ; i < n-1 ;i++)
+    {
+        ll sum = 0;
+        for( j = 0 ; j < m-1; j++)
+        {
+           if(a[i][j] < k)
+           {
+                t  = min(n-i , n-j)-1;
+                
+
+           }        
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
     cout << count;
 }
