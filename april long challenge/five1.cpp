@@ -33,7 +33,7 @@ void solve()
     ll count = 0;
     ll t;
     int i , j;
-    
+
     for( i = 0 ; i < n ;i++)
     {
         for( j = 0 ; j < m ; j++)
@@ -41,6 +41,7 @@ void solve()
             cin>> a[i][j];
         }
     }
+
 
     for( i = 0 ; i < n ;i++)
     {
@@ -52,7 +53,7 @@ void solve()
         }
     }
 
-    for( i = 0 ; i < m ;i++)
+    for( i = 0 ; i < m;i++)
     {
         ll sum = 0;
         for( j = 0 ; j < n ; j++)
@@ -62,73 +63,52 @@ void solve()
         }
     }
 
-    cout << endl;
-      for( i = 0 ; i < n ;i++)
-    {
-        ll sum = 0;
-        for( j = 0 ; j < m ; j++)
-        {
-            cout << c[i][j] <<" ";
-        }
-        cout << endl;
-    }
-
-    cout << endl;
-
+    int val = min(n,m);
+    int p , q , r , x, y , z , lol;
     for( i = 0 ; i < n ;i++)
     {
         for( j = 0 ; j < m; j++)
         {
-            if(a[i][j] >= k)
-            {
-                count = count + min(n-i , m-j);
-            }
-
-            else
-            {
-                int p = i+1;
-                int q = j+1;
-                int val = min(n,m);
-                int r = 2;
-                int x,y,z;
+                 p = i;
+                 q = j;
+                 r = 1;
+                 x,y,z,lol;
                 while(p<val && q<val)
                 {
-                     x = c[p][q];
-    
+                    x = c[p][q];    
                     if(p-r>=0 && q-r>=0)
                     {
                          y = c[p-r][q];
                          z = c[p][q-r];
+                         lol = c[p-r][q-r];
                     }
-                    else if(p-r>=0 && q-r<0)
+                    else if(p-r >=0 && q-r<0)
                     {
                         y = c[p-r][q];
                         z = 0;
+                        lol = 0;
                     }
                      else if(p-r<0 && q-r>=0)
                     {
                         y = 0;
                         z = c[p][q-r];
+                        lol = 0;
                     }
                     else
                     {
                         y = 0;
                         z = 0;
+                        lol = 0;
                     }
-                            ll s = pow(r ,2);
-                            cout << x << " " << y << " " << z << " " << s << endl;
-                            ll u = (x-(y+z)) /s;
-                            cout << u << endl;
-                        if( u >= k)
+                            float s =(float) pow(r ,2);
+                            float u = ((x+lol)-(y+z))/s;
+                        if(u>=k)
                         {      
-                            count = count + min(n-p, m-q);
-                            break;
+                            count = count + 1;
                         }
                     p++;
                     q++;
                     r++;
-                    
-                }
             }
         }
     }
