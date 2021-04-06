@@ -80,10 +80,8 @@ void solve()
         {
             for(j = k-1 ; j < m ; j++)
                 {
-
-                  ll sum = c[i][j];
-                  ll p=0 , q=0, r = 0;
-
+                ll sum = c[i][j];
+                ll p=0 , q=0, r = 0;
                 if(i>=k && j>=k)
                   r = c[i-k][j-k];
                 if(i>=k)
