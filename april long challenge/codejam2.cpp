@@ -91,6 +91,7 @@ void solve(ll t)
 }
 int main()
  {
+     
      ll t;
      cin >> t;
      for(ll i = 1 ; i <= t ; i++)
