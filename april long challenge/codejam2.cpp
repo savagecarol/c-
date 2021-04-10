@@ -30,24 +30,28 @@ void solve(ll t)
 {
     ll n;
     cin >> n;
-    ll a[n];
-    for(ll i = 0 ; i < n ;i++)
+
+    long double a[n];
+    long double b[n];
+
+    for(ll i = 0 ; i < n ; i++)
     {
         cin >> a[i];
     }
     ll count = 0;
-    for(ll i = 1 ; i < n ;i++)
+
+    for(ll i = 1 ; i < n ; i++)
     {
         if(a[i] > a[i-1])
         {
             continue;
         }
 
-        ll count1 = countDigit(a[i]);
-        ll count2 = countDigit(a[i-1]);
-
-        ll pro = abs(count2 - count1);
-        a[i] = a[i] * pow(10 , pro);
+        ll count1 = to_string(a[i]).size();
+        ll count2 = to_string(a[i-1]).size();
+        ll pro = (count2 - count1);
+        ll m=a[i];
+        a[i] = m * pow(10 , pro);
         count += pro;
 
         if(a[i] > a[i-1])
@@ -57,34 +61,32 @@ void solve(ll t)
     
         ll value = a[i-1];
         ll value1 = a[i];
-        
         ll j = 0;
+        ll sum = 0;
         while(j<pro)
         {
             ll r = value %10;
-
-            if(r < 9)
-                {
-                    r = r+1;
-                    r = r * pow(10 , j);
-                    value1 = value1 + r;
-                }
-            if(value1 > a[i-1])
-                {
-                    a[i] = value1;
-                    break;
-                }    
+            sum  = sum +  r * pow(10 , j); 
             value = value / 10;       
             j++;        
-        
         }
 
-        if(value1 <= a[i-1])
+        if(countDigit(sum+1) == pro && value1 > a[i-1])
+        {
+                ll w = sum +1;
+               a[i] = a[i] + w; 
+        }
+        else if(value1 <= a[i-1])
             {
                 a[i] = a[i] * 10;
                 count++;
             }
     }
+    for(int i = 0 ; i < n;i++)
+        {
+            cout << a[i] << " ";
+        }
+        cout << endl;
     cout << "Case "<< "#" <<t<<": " <<count; 
 }
 int main()
