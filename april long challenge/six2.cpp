@@ -77,7 +77,6 @@ void solve()
     unordered_set<string> l;
 	ll n = bTD(s);
     Subsequence(s , "" , l);
-
 	for(int i = 0 ; i<n; i++)
 	{
         if(l.find(m[i]) == l.end())
