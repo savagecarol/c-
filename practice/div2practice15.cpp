@@ -22,28 +22,52 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-float s(float var)
-{
-    float value = (int)(var * 100 + .5);
-    return (float)value / 100;
-}
-
 void solve()
 {
-    int k;
-    cin >> k;
-    int n = 2 * k;
+    int n;
+    cin >> n;
     int a[n];
-    for(int i = 0 ; i < n;i++)
+    inp(i , n , a);
+    int  maxx = 0;
+    for(int i = 1 ; i < n ;i++)
     {
-        cin >> a[i];
+        if(a[maxx] < a[i])
+        {
+            maxx = i;
+        }
     }
-    
-}
-int main()
- {
+ 
 
+    int count = 0;
+    for(int i = maxx ; i>0 ;i--)
+    {
+        int temp = a[i-1];
+        a[i-1] = a[i];
+        a[i] = temp;
+        count++;
+    }
+
+
+   int  minn = 0;
+    for(int i = 1 ; i < n ;i++)
+    {
+        if(a[minn] >= a[i])
+        {
+            minn =i;
+        }
+    }
+
+    for(int i = minn ; i<n-1 ;i++)
+    {
+        int temp = a[i+1];
+        a[i+1] = a[i];
+        a[i] = temp;
+        count++;
+    }
+
+    cout << count;
+}
+int main() {
             solve();
-            cout << endl;
             return 0 ;
 }

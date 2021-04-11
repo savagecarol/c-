@@ -30,15 +30,36 @@ float s(float var)
 
 void solve()
 {
-    float a , b , c , d;
-    cin >> a >> b >> c >> d;
-    float value = a * b * c * d ;
-    float ans = 100/value;
-    float p = 9.58;
-    if(s(ans) < p)
-        yes();
-    else    
-        no();
+    ll n;
+    cin >> n;
+    int a[n];
+    for(int i = 0 ; i < n ; i++)
+    {
+        cin >> a[i];
+    }
+    for(int i = 1 ; i < n-1;i++)
+    {
+        if(a[i]!=a[i-1] || a[i]!=a[i+1])
+            {
+                if(a[i]==a[i+1])
+                    {
+                        cout << i;
+                        return;
+                    }
+                if(a[i]==a[i-1])
+                    {
+                        cout << i+2;
+                        return;
+                    } 
+                if(a[i]!=a[i-1] && a[i]!=a[i+1])
+                {
+                    cout << i+1;
+                    return;
+                }
+
+            }
+    }
+
 }
 int main()
  {

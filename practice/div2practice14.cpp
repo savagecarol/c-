@@ -22,28 +22,26 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-float s(float var)
-{
-    float value = (int)(var * 100 + .5);
-    return (float)value / 100;
-}
-
 void solve()
 {
-    int k;
+    ll n;
+    cin >> n;
+    ll k;
     cin >> k;
-    int n = 2 * k;
-    int a[n];
-    for(int i = 0 ; i < n;i++)
+    ll a[n];
+    inp(i , n , a);
+    sort(a, a +n);
+    ll first = a[0] - 0;
+    ll second = k - a[n-1];
+    ll diff = 2*max(first , second);
+    for(ll i = 0 ; i< n-1;i++)
     {
-        cin >> a[i];
+        diff = max(diff, a[i+1]-a[i]);
     }
-    
-}
-int main()
- {
+    cout <<fixed <<setprecision(10)<<diff/2.;
 
+}
+int main() {
             solve();
-            cout << endl;
             return 0 ;
 }
