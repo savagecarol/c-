@@ -6,7 +6,7 @@ using namespace std;
 #define yes() cout << "YES" 
 #define no() cout << "NO"
 #define one() cout << "1"
-#define zero() cout << "0"
+#define two() cout << "0"
 #define ll long long int
 #define mp make_pair
 #define fi first
@@ -22,14 +22,26 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-void solve()
-{ 
-    int n;
-    cin >> n;
-    cout << n-1;
-   
-}
+/* code */ 
 
-int main() {
-          solve();
+void print(int i, int n)
+{
+	string buf(1, char('0'+i));
+	for(int k=i-1; k>=0; --k)
+		buf = char('0'+k) + (' ' + buf + ' ') + char('0'+k);
+	buf = string(n*2-i*2, ' ') + buf;
+	cout << buf << endl;
+}
+ 
+int main()
+{
+	for(int n; cin>>n;)
+	{
+		for(int i=0; i<=n; ++i)
+			print(i, n);
+
+		for(int i=n-1; i>=0; --i)
+			print(i, n);
+
+	}
 }

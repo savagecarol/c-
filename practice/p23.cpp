@@ -6,7 +6,7 @@ using namespace std;
 #define yes() cout << "YES" 
 #define no() cout << "NO"
 #define one() cout << "1"
-#define zero() cout << "0"
+#define two() cout << "0"
 #define ll long long int
 #define mp make_pair
 #define fi first
@@ -23,13 +23,19 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 void solve()
-{ 
-    int n;
-    cin >> n;
-    cout << n-1;
-   
-}
+{
+    string s;
+    cin >> s;
+    for(int i = 0 ; i < s.length();i++)
+    {
+        if(s[i] == 'H' || s[i] == 'Q' || s[i] == '9' )
+           { yes();return ;}
+    }
 
+    no();
+}
+    
 int main() {
-          solve();
+            solve();
+    return 0 ;
 }
