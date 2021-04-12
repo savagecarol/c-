@@ -23,49 +23,31 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 /* code */
+
+
+
+
 void solve()
 {
-    int n , k ;
-    cin >> n >> k;
-    if(k == 1)
-        {
-            for(int i = 0 ; i < n ;i++)
-            {
-                cout <<"a";
-            }
-            return;
-        }
-        
-    bool l = false;
-    if(n%2==0)
-    {    
-    for(int i = 0 ; i < n;)
-        {
-        if(l)
-        { cout << "aa"; l = false;}
-        else
-         {cout << "bb";l=true;}
-         i=i+2;
-        }
-    }
-    else
+    string s;
+    cin >> s;
+    int n = s.length();
+    int count = 0;
+    for(int i = 0 ; i < n ;i++)
     {
-        for(int i = 0 ; i < n-1;)
+        for(int j = i+1 ; j < n ;j++)
         {
-        if(l)
-        { cout << "aa"; l = false;}
-        else
-         {cout << "bb";l=true;}
-         i=i+2;
+            for(int k = j+1 ; k < n ;k++)
+            {
+                if(s[i] == 'Q' && s[j]== 'A' && s[k] == 'Q')
+                    count++;
+            }
         }
-            if(l==false)
-                cout << "b";
-            else
-                cout << "a";
-        
     }
+    cout << count;
 }
-int main() {
+
+        int main() {
         solve();
         return 0 ;
-}
+            }

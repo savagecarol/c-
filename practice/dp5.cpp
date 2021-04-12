@@ -22,37 +22,17 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-/* code */ 
-
+/* code */
 void solve()
 {
-    int n , k;
-    cin >> n >> k;
-    int i = 1;
-
-    while(i <=n)
-    {
-        if(k > 0)
-        {
-            cout << n << " ";
-            n--;
-            k--;
-        }
-
-        else
-        {
-            cout << i << " ";
-            i++;
-        }
-
-    }
-
+    int n;
+  cin >> n;
+  
+    cout << 2*n*n-2*n+1;
 }
-    
-
-int main() {
-
+        int main()
+         {
+     
             solve();
-            cout << endl;
         return 0 ;
-}
+    }

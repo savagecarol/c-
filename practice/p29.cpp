@@ -36,7 +36,9 @@ void solve()
             return;
         }
         
-    bool l = false;
+    bool l = true;
+
+
     if(n%2==0)
     {    
     for(int i = 0 ; i < n;)
@@ -47,7 +49,7 @@ void solve()
          {cout << "bb";l=true;}
          i=i+2;
         }
-    }
+    } 
     else
     {
         for(int i = 0 ; i < n-1;)
@@ -62,8 +64,8 @@ void solve()
                 cout << "b";
             else
                 cout << "a";
-        
     }
+    cout << endl;
 }
 int main() {
         solve();

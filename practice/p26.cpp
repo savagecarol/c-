@@ -22,37 +22,40 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-/* code */ 
+/* code */
+bool isPrime(int n)
+{
+
+    if (n <= 1)
+        return false;
+
+    for (int i = 2; i < n; i++)
+        if (n % i == 0)
+            return false;
+ 
+    return true;
+}
+ 
+
 
 void solve()
 {
-    int n , k;
-    cin >> n >> k;
-    int i = 1;
-
-    while(i <=n)
-    {
-        if(k > 0)
-        {
-            cout << n << " ";
-            n--;
-            k--;
-        }
-
-        else
-        {
-            cout << i << " ";
-            i++;
-        }
-
-    }
-
+    ll a , b , c ;
+    cin >> a >> b >> c;
+    ll d[10] = { 0 , 1 , 10 , 100 , 1000 , 10000 , 100000 , 1000000 , 10000000 , 100000000};
+    if(b>a)
+    cout << d[a] << " " <<  d[b]+d[c];
+    else
+    cout << d[a]+d[c] << " " <<  d[b];
 }
     
-
 int main() {
-
-            solve();
+    ll t;
+    cin >> t;
+    while(t--)
+    {
+        solve();
             cout << endl;
+    }
         return 0 ;
 }

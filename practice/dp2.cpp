@@ -25,45 +25,26 @@ typedef pair<ll, ll> pll;
 /* code */
 void solve()
 {
-    int n , k ;
-    cin >> n >> k;
-    if(k == 1)
-        {
-            for(int i = 0 ; i < n ;i++)
-            {
-                cout <<"a";
-            }
-            return;
-        }
-        
-    bool l = false;
-    if(n%2==0)
-    {    
-    for(int i = 0 ; i < n;)
-        {
-        if(l)
-        { cout << "aa"; l = false;}
-        else
-         {cout << "bb";l=true;}
-         i=i+2;
-        }
-    }
-    else
+    ll n;
+    cin >> n;
+    int a[n];
+    inp(i , n , a);
+
+    int count = 1;
+    int res = 1 ;
+    for(int i = 1 ; i < n;i++)
     {
-        for(int i = 0 ; i < n-1;)
+        if(a[i] > a[i-1])
         {
-        if(l)
-        { cout << "aa"; l = false;}
-        else
-         {cout << "bb";l=true;}
-         i=i+2;
+            count++;
+            res = max(res , count);
         }
-            if(l==false)
-                cout << "b";
-            else
-                cout << "a";
-        
-    }
+        if(a[i] <= a[i-1])
+        {
+            count = 1;
+        }
+    } 
+    cout << res;
 }
 int main() {
         solve();
