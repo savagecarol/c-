@@ -22,31 +22,24 @@ using namespace std;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
-/* code */
-
-
-void coprime(ll a, ll b) {
-      
-    if ( __gcd(a, b) == 1)
-            yes(); 
-    else
-            no();      
-}
 void solve()
-{
-    ll num1 , num2 , i ,hcf = 1;
-    cin >> num1 >> num2;
-    coprime(num1 , num2);
-
-}
+    {
+        ll n;
+        cin >> n;
+        int r = n/2020;
+        int x = n%2020;
+        if(x > r) no();
+        else    yes();
+    }
 int main()
 {
-    int t;
-    cin >> t;
-    while(t--)
-        {
-        solve();
-        cout << endl;
-        }
+  int t;
+  cin>> t;
+  while(t--)
+ { 
+       solve();
+       cout << endl;
+ }
     return 0 ;
 }
+  

@@ -23,20 +23,47 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 /* code */
-
-
-void coprime(ll a, ll b) {
-      
-    if ( __gcd(a, b) == 1)
-            yes(); 
-    else
-            no();      
-}
 void solve()
 {
-    ll num1 , num2 , i ,hcf = 1;
-    cin >> num1 >> num2;
-    coprime(num1 , num2);
+  ll n , m;
+  cin >> n >> m;
+  ll a[n];
+  ll b[m];
+  for(ll i = 0 ; i < n ; i++)
+  {
+      cin >> a[i];
+  }
+  for(ll i = 0 ; i < m ; i++)
+  {
+      cin >> b[i];
+  }
+
+
+
+
+   vector<ll> k; 
+  for(ll i = 0 ; i < n-1 ;i++)
+  {
+         ll count = 0;
+      for(ll j = i+1;j<n;j++)
+        {   
+            k.push_back(a[i] * a[j]);
+        }
+  }
+
+
+  for(ll i = 0 ; i < m;i++)
+  {   
+      ll count = 0;
+        for(auto p : k)
+        {
+            if(p%b[i] == 0)
+                {
+                    count++;
+                }
+        }
+        cout << count << " ";
+  }
 
 }
 int main()

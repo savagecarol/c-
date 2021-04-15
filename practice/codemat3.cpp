@@ -34,11 +34,22 @@ void coprime(ll a, ll b) {
 }
 void solve()
 {
-    ll num1 , num2 , i ,hcf = 1;
-    cin >> num1 >> num2;
-    coprime(num1 , num2);
+   ll n;
+   cin >> n;
+   ll a[n];
+   inp(i , n , a);
+   sort(a , a + n);
+ll cd = a[1] - a[0];
 
+    for(ll i = 1 ; i < n;i++)
+    {
+        if(a[i] - a[i-1] > cd)
+            {
+
+            }
+    }
 }
+
 int main()
 {
     int t;
