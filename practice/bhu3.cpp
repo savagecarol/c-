@@ -32,62 +32,60 @@ void solve()
     ll q;
     cin >> q;
     vector<pair<ll , ll>> qu;
-
     ll x , y;
     for(ll i = 0 ; i < q; i++)
     {
         cin >> x >> y;
         qu.push_back({x , y});
     }
-
+        ll d[n];
+        for(ll i = 0 ; i < n;i++)
+        {
+            d[i] = i;
+        }
 
 
         for(ll j = 0 ; j < q ;j++)
         {
-            ll c = qu[j].fi;
-            ll b = qu[j].se;
-            ll count = 0;
-            bool first = true;
-            ll distance = -1;
-            for(ll i = c-1  ; i < n ; i++)
+                ll c = qu[j].fi;
+                ll b = qu[j].se;
+                c=c-1;
+                ll distance = d[c] - c;
+                ll i = d[c];
+                ll fill = 0;
+                ll res = 0;
+                while(d[i]!=i) i=d[i];
+                ll set=0;
+            while(i<n)
                 { 
-                    if(b==0)
-                        break;
-
-                    if(a[i]<= b  && first == true)
-                    {
-                             b = b-a[i];
-                             a[i] = 0;
-                            first = false;     
-                    }
-
-                    if(a[i]> b && first )
-                    {
-                        a[i] = a[i] - b;
-                            b = 0;
-                        first = false;     
-                    }
-
-                      if(a[i]<=b  && !first)
-                    {
-                          count = count + a[i];
-                            b = b-a[i];
-                            a[i] = 0;
-                    }
-
-                    else
+                    set=i;
+                    if(a[i] <=b)
                         {
-                                 count = count + b;
-                                a[i] = a[i] - b;
-                                 b = 0;
+                            fill = fill +a[i];
+                            b=b-a[i];
+                            a[i] = 0;    
                         }
-                        distance++;
+                    else
+                    {
+                        fill = fill + b;
+                        a[i] = a[i] - b;
+                        b=0;
+                    }
+                    res = res + (fill * distance);
+                    distance++;
+                    fill = 0;
+                    i++;
+                }
+                cout << res << endl;
+                for(ll k = c ; k <=set; k++)
+                {
+                    if(a[k] == 0)
+                        {
+                            d[k] = set;
+                        }                
                 }
 
-
-                cout << count * distance << endl;
         }
-
 }
 int main()
 {
