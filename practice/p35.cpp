@@ -73,13 +73,13 @@ void solve()
         if(two%2 != 0)
             one = one + 2;
         
-    if(one%2 == 0)
+    if(one%4 == 0)
         {
-            taxi = taxi + one/2;
+            taxi = taxi + one/4;
         }
     else
         {
-            taxi = taxi + (one/2) +1 ;
+            taxi = taxi + (one/4) +1 ;
         }
         cout << taxi;
 }

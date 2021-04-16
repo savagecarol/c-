@@ -18,58 +18,38 @@ using namespace std;
 #define out(i,n,arr) for(int i=0 ; i<n ; i++) cout << arr[i] << " "
 #define loop(i,n) for(int i=0;i<n;i++)
 
+#define mod 1000000007
+ ll dp[2000][2000];
+
+
 /* typedef */
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
+/* code */
+ll find(ll a[],ll l,ll r){
+    if(l==r)
+        return 0;
+    if(dp[l][r]!=-1)
+        return dp[l][r];
+    return dp[l][r]=min(find(a,l+1,r),find(a,l,r-1))+a[r]-a[l];
+}
 void solve()
-    {
-        ll n;
-        cin>> n;
-        ll a[n];
-
-        for(int i = 0 ; i <n ;i++)
-        {
-            cin >> a[i];
-        }
-        sort(a , a + n);
-        bool r[n];
-        ll res = 0;
-
-    
-        int k = 0, l = 0;
-        int value1 = -1;
-        int value2 = -1;
-        for(int i = 0 ; i < n ;i++)
-        {
-   
-            if(i-1 >=0 )
-            {
-                k =  a[i] - a[i-1] ;
-            }
-            if(i+1 <n )
-            {
-                l =  a[i+1] - a[i] ;
-            }
-            if(k > l)
-                {
-                    value1 = i+1;
-                }
-            else
-                {
-                    value2 = i-1;
-                }
-        }
-    }
-
-int main()
 {
-    ll t;
-    t=1;
-    while(t--)
-     {
-        solve();
-        cout << endl;
-     }
-    return 0;
+	    ll t,n,k,i,j;
+ cin >> n ;
+    ll a[n];
+    
+    for(i=0;i<n;i++){
+        cin >> a[i];
+        fill(dp[i],dp[i]+n,-1);
+    }
+    sort(a,a+n);
+    cout << find(a,0,n-1);
+    
+}
+ 
+int main(){
+	solve();
+	return 0;
 }
