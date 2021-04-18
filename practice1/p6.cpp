@@ -40,6 +40,7 @@ void solve()
 
 
     ll dp[n*(n+1)/2];
+    
     ll k = 0;
     for(ll i = 0 ; i < n ;i++)
     {
@@ -59,6 +60,7 @@ void solve()
     {
          d =d | dp[i];
     }
+
     cout << d << endl;
 
     loop(i , q)
