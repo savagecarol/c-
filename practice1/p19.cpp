@@ -6,7 +6,7 @@ using namespace std;
 #define yes() cout << "YES" 
 #define no() cout << "NO"
 #define one() cout << "1"
-#define two() cout << "0"
+#define zero() cout << "0"
 #define ll long long int
 #define intt long long
 #define mp make_pair
@@ -30,26 +30,34 @@ typedef pair<ll, ll> pll;
 /* code */ 
 void solve()
 {
-    ll n , k;
-    cin >> n >> k;
+    ll n ;
+    cin >> n;
     ll a[n];
-    for(ll i = 0 ; i < n;i++)
+    inp(i , n , a);
+    ll sum = a[0];
+    for(ll i = 1 ; i < n;i++)
     {
-        cin >> a[i];
+        sum = sum ^ a[i];
+    }
+    if(sum == 0)
+    {
+        yes();
+        return;
     }
 
-    ll i = 0 ;
-    ll j = n-1;
-    while(i < j && k > 0)
+    ll y = 0;
+    ll count = 0;
+    for(int i = 0 ; i < n;i++)
     {
-        ll r = min(a[i] , k);
-        a[i] = a[i] - r;
-        a[j] = a[j] + r;
-        i++;
-        j--;
-        k = k-r;
+        y = y^a[i];
+        if(y==sum)
+        {
+            count++;
+            y=0;
+        }
     }
-    out(i , n , a);
+    if(count>1)yes();
+    else no();
 }
 int main()
 {
