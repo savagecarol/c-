@@ -1,3 +1,1 @@
-
-    if(e==1)
-        cout << ans2+1;
+ // finder(a ,4 , p , q );
