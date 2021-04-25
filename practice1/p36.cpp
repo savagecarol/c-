@@ -27,37 +27,29 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
  
 /* code */ 
-void solve()
-{
 
-    ll n;
-    cin >> n;
-    string x;
-    unordered_map< string , int> s;
-    for(int i = 0 ; i < n;i++)
+int main(){
+
+ll n;
+cin >> n;
+ll a[n];
+inp(i , n , a);
+sort(a , a+n);
+if(a[0] == a[n-1])
+ {
+        cout << 0 << " " << n*(n-1)/2LL;
+        return 0;
+ }
+ll diff = a[n-1] - a[0];
+cout << diff << " ";
+ll l = 0 , h = 0 ;
+    loop(i , n)
     {
-        cin >> x;
-
-        if(s.find(x)==s.end())
-        {
-            cout <<"OK";
-        }
-        else
-        {
-            cout << x << s[x];
-        }
-            s[x]++;
-            cout << endl;
+        if(a[i] == a[0])
+            l++;
+        else if(a[i] == a[n-1])
+            h++;
     }
-
-}
-int main()
-{
-    ll t;
-    t=1;
-    while(t--)
-    {
-	solve();
-    }
-	return 0;
+    cout << l*h;
+    return 0;
 }

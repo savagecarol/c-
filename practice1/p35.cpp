@@ -27,37 +27,32 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
  
 /* code */ 
-void solve()
-{
-
-    ll n;
-    cin >> n;
-    string x;
-    unordered_map< string , int> s;
-    for(int i = 0 ; i < n;i++)
-    {
-        cin >> x;
-
-        if(s.find(x)==s.end())
-        {
-            cout <<"OK";
-        }
-        else
-        {
-            cout << x << s[x];
-        }
-            s[x]++;
-            cout << endl;
+vector<int> p(1000000+1, 0);
+void seive(){
+    p[1] = p[0] = 0;
+ 
+    for(ll i = 3; i <= 1e6; i += 2){
+        p[i] = 1;
     }
-
+    for(ll i = 3; i <= 1e6; i += 2){
+        if(p[i]){
+            for(ll j = i*i; j <= 1e6; j += i)
+                p[j] = 0;
+        }
+    }
+    p[2] = 1;
 }
-int main()
-{
+int main(){
+    seive();
     ll t;
-    t=1;
-    while(t--)
-    {
-	solve();
+    cin>> t;
+    loop(i , t){
+        ll n;
+        cin >> n;   
+        if(ceil(sqrt(n)) == floor(sqrt(n)) && p[(int)sqrt(n)])
+            cout << "YES\n";
+        else
+            cout << "NO\n";
     }
-	return 0;
+    return 0;
 }

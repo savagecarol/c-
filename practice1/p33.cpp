@@ -30,7 +30,30 @@ typedef pair<ll, ll> pll;
 void solve()
 {
 
+    ll n;
+    cin >> n;
+    ll x;
+    ll e=0 , o = 0;
+    ll ans1 = 0, ans2 = 0;  
+    for(int i = 0 ; i < n;i++)
+    {
+        cin >> x;
+        if(x%2==0)
+        {
+            e++;
+            ans1=i;
+        }
+        else
+        {
+            o++;
+            ans2=i;
+        }
+    }
 
+    if(e==1)
+        cout << ans1+1;
+    else    
+        cout << ans2+1;
 }
 int main()
 {
