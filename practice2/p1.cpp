@@ -31,12 +31,30 @@ typedef pair<ll, ll> pll;
 void solve()
 {
  
+ string s;
+
+ cin >> s;
+ ll n = s.length();
+ loop(i , n)
+ {
+     if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' || s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U' || s[i] == 'y' || s[i]=='Y')
+          continue;
+    else
+        {
+            cout << ".";
+            if(s[i]>='A' && s[i] <='Z')
+                cout << (char)(s[i] + 32);
+            else
+                cout << s[i];
+        }
+
+ }
 
 }
 int main()
 {
     ll t;
-    cin >> t;
+    t= 1;
     while(t--)
     {
 	solve();

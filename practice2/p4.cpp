@@ -30,44 +30,25 @@ typedef pair<ll, ll> pll;
 /* code */ 
 void solve()
 {
-    string s;
-    cin >> s;
-    ll k = 5;
-    ll n = s.length();
-    int a = 0 , b = 0 , c= 0 , d = 0 , e = 0;
-    loop(i , n)
-    {
-        if(s[i] == 'h' && a==0)
-        {
-            a=1;
-        }
-        else if(s[i] == 'e' && a==1 && b==0)
-            {
-                b=1;
-            }
-        else if(s[i] == 'l' && b==1 && c==0)
-        {
-            c=1;
-        }
-        else if(s[i] == 'l' && c==1 && d==0)
-        {
-            d=1;
-        }
-        else if(s[i] == 'o' && d==1 && e==0)
-        {
-            e=1;
-        }
-    }
+    int n;
+    cin >> n;
+    int a[] = {4 , 7 , 47 , 74 , 444 ,  447 , 474 , 744 , 477 , 747 , 774 , 777 };
 
-    if(a==1 && b==1 && c==1 && d==1 && e==1)
+    for(int i=0 ;i< 12 ;i++)
+    {
+        if(a[i] <=n)
         {
-            yes();
+            if(n%a[i]==0)
+               { 
+                yes();
+                return;
+               }
         }
-    else    
-        {
-            no();
-        }
+
+    }
+    no();
 }
+
 int main()
 {
     ll t;
