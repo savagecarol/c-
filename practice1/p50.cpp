@@ -30,7 +30,9 @@ typedef pair<ll, ll> pll;
 /* code */ 
 void solve()
 {
-
+    string l;
+    cin >> l;
+    cout <<l.size();
 
 }
 int main()

@@ -28,27 +28,15 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 
 /* code */ 
-map< int , int , greater<int>> a;
 void solve()
 {
-    ll X;
-    cin >> X ;
-   int jumps = 0;
-    while (X > 0)
-        {
-            X -= ++jumps;
-        }
- 
-    if (X == -1)
-        jumps++;
- 
-    cout << jumps;
+    ll x , y;
+    cin >> x >> y;
+    cout << x-1 << " " << y;
 
 }
 int main()
 {
-
-
     ll t;
     cin >> t;
     while(t--)
