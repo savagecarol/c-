@@ -30,34 +30,8 @@ typedef pair<ll, ll> pll;
 /* code */ 
 void solve()
 {
-    ll big = 0;
-    ll small = 0;
-    string s;
-    cin >> s;
-    ll count = 0;
-    ll n = s.length();
-    loop(i , n)
-    {
-        if(s[i]== '[')
-            {
-                big++;
-            }
-        if(s[i] == '(')
-            {
-                small++;
-            }
-        if(s[i] == ')' && small >0)
-        {
-            count++;
-            small--;
-        }
-           if(s[i] == ']' && big >0)
-        {
-            count++;
-            big--;
-        }
-    }
-    cout << count;
+
+
 }
 int main()
 {
