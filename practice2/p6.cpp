@@ -30,39 +30,43 @@ typedef pair<ll, ll> pll;
 /* code */ 
 void solve()
 {
-   string s;
-   cin >> s;
-   ll d= 0;
-   ll e = 0;
-   if(s[0]>='A' && s[0]<='Z')
-    d=1;
-    for(int i=1;i <s.length();i++)
+ 
+    ll n;
+    cin >> n;
+    if(n <3)
     {
-    if(s[i]>='a' and s[i]<='z')
-        {   e=1;
-        break;
+        cout << -1;
+        return;
+    }
+    if(n==4)
+    {
+            cout << -1;
+            return;
+    }
+    for(int i = 0 ; i<=1000;i++)
+    {
+        for(int j = 0;j<=1000;j++)
+        {
+            for(int k = 0 ; k <=1000;k++)
+                {
+                    if( (i * 3 + j * 5 + 7 * k) == n)
+                    {
+                        cout << i << " " << j << " " << k;
+                        return;
+                    }
+                    else if((i * 3 + j * 5 + 7 * k) > n)
+                        {
+                        break;
+                        }   
+                }
         }
     }
-
-    if(e==1)
-        cout << s;
-    else if(d==1 && e==0)
-    {
-        transform(s.begin(), s.end(), s.begin(), ::tolower);
-        cout << s;
-    }
-    else
-    {
-         transform(s.begin(), s.end(), s.begin(), ::tolower);
-         s[0] = (char)s[0]-32;
-            cout << s;
-    }
-
+    cout << -1;
 }
 int main()
 {
     ll t;
-    t= 1;
+    cin >> t;
     while(t--)
     {
 	solve();
