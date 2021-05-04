@@ -27,34 +27,32 @@ typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
  
 /* code */
+unordered_set<ll> p;
 void solve()
 	{
-		ll n , x;
-		cin >> n >> x;
-		ll p = x+2;
-		if(n>=1 && n<=2)
-			cout << 1;
-		else if(n>=3 && n <= x+2)
-			cout << 2;
-		else
-		{
-			ll count = 3;
-			ll start = x+3;
-			ll end = (2 * x) + 2;
-			ll i = 3;
-			while(!(n>=start && n<=end))
-			{
-				start = end + 1;
-				end = (i * x) + 2; 
-				i++;
-				count++;
-			}	
-			cout << count;
-		}
+        ll n;
+        cin >> n;
+        if(n<2020)
+            no();
+        else
+        {
+            if(p.find(n) != p.end())
+                yes();
+            else
+                no();
+        }
+   
 	}
 
 int main() 
 {	
+    for(int i = 0 ; i < 1000;i++)
+    {
+        for(int j = 0 ; j < 1000;j++)
+        {
+            p.insert(i*2020 + j*2021);
+        }
+    }
 	int t;
 	cin >> t;
 	while(t--)

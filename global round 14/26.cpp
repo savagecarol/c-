@@ -29,32 +29,26 @@ typedef pair<ll, ll> pll;
 /* code */
 void solve()
 	{
-		ll n , x;
-		cin >> n >> x;
-		ll p = x+2;
-		if(n>=1 && n<=2)
-			cout << 1;
-		else if(n>=3 && n <= x+2)
-			cout << 2;
-		else
-		{
-			ll count = 3;
-			ll start = x+3;
-			ll end = (2 * x) + 2;
-			ll i = 3;
-			while(!(n>=start && n<=end))
-			{
-				start = end + 1;
-				end = (i * x) + 2; 
-				i++;
-				count++;
-			}	
-			cout << count;
-		}
-	}
+
+        ll a,b,k; cin >> a >> b >> k;
+        vector<ll> boy(k),girl(k);
+        inp(i , k , boy);
+        inp(i , k , girl);
+        map<int,int>m1,m2;
+        for(int i : boy) m1[i] += 1;
+        for(int i : girl) m2[i] += 1;
+        ll ans = 0;
+        for(int i =  0 ; i < k ;i++)
+        {
+        	ans += (k - m1[boy[i]] - m2[girl[i]] + 1);
+        }
+        ans /= 2;
+        cout << (ans);
+}
 
 int main() 
 {	
+
 	int t;
 	cin >> t;
 	while(t--)
