@@ -34,48 +34,47 @@ void solve()
     cin >> n;   
     string s;
     cin >> s;
+
+    
+        map <pair<int, int>, int> mp;
+        mp[{0,0}] = -1;
+        int x = 0, y = 0;
+        int pos1 = -1000, pos2 = 1e8;
  
-    vector<pair<int , int>> ans;
-    for(int i = 0 ; i < n ;i++)
-    {
-        int l = 0 , r = 0 , u = 0 , d = 0;
-        for(int  j = i;j< n;j++ )
+        for(int  j = 0 ;j< n;j++ )
             {
                 if(s[j] == 'L')
-                    l++;
+                    x--;
                 if(s[j] == 'R')
-                    r++;
+                    x++;
                 if(s[j] == 'U') 
-                    u++;
+                    y++;
                 if(s[j] == 'D')
-                    d++;
- 
-                if(l== r &&  u==d )
-                    {
-                        ans.push_back({i , j});
-                    }
-            }   
-    }
- 
-    if(ans.size()==0)
-        cout << -1;
-    else
-        {
-            int temp = INT_MAX;
-            int res = 0;
-            for(int i = 0 ; i < ans.size();i++)
-                {   
-                    if(ans[i].second - ans[i].first < temp )
-                    {
-                        temp = ans[i].second - ans[i].first ;
-                        res = i;
-                    }
+                    y--;
+
+                 if(mp.find({x,y}) != mp.end())
+                 {
+                        int l = mp[{x,y}];
+                        l++;
+                         int r = j;
+                      if((r-l+1) < (pos2-pos1 + 1))
+                        {
+                        pos1 = l;
+                        pos2 = r;
+                    }            
                 }
-                cout << ans[res].first + 1 << " " << ans[res].second + 1;
+                    mp[{x,y}] = j;
+            }
+                    if(pos1==-1000 and pos2==1e8){
+                            cout << "-1";
+                                            }
+        else{
+            cout << (pos1+1) << ' ' << (pos2+1);
         }
  
- 
-}
+   
+    }
+
 int main() 
 {	
 	int t;
