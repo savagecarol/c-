@@ -38,59 +38,20 @@ long long binpow(long long a, long long b) {
     return res;
 }
 /* code */
- 
 void solve()
 {
     ll n;
     cin >> n;
-
-    if(n==2)
-        {
-            cout << -1 << endl;
-            return ;
-        }
-    int mat[n][n];
-    int k = 1;
-
-    ll p =0;
-    int x;
-    while(p<n-1)
-    {
-         x = 0;
-        for(int j = p ; j < n ; j++)
-            {
-                mat[x][j] = k;
-                x++;
-                k++;
-            }
-        p++;
-    }
-
-    p=1;
-    x=p;
-    while(p < n-1)
-    {
-        mat[x][x-p] = k;
-        x++;
-        k++;
-        if(x==n)
-          {
-               p++;
-               x=p;
-          }
-    }   
-    mat[n-1][0]=k+1;
-    mat[0][n-1]=k;
-
+    string s;
+    cin >> s;
+    
     for(int i = 0 ; i < n;i++)
     {
-        for(int j = 0 ; j < n;j++)
-            {
-                cout << mat[i][j] << " ";
-            }
-            cout << endl;
+
     }
+ 
 }
+
 int main() 
 {	
 	int t;
@@ -98,6 +59,7 @@ int main()
 	while(t--)
 	{
 	   solve();
+       cout << endl;
 	}
 	return 0;
 }

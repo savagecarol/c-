@@ -40,14 +40,30 @@ long long binpow(long long a, long long b) {
 /* code */
 void solve()
 {
-    
+    ll n;
+    cin >> n;
+    ll a[n+1];
+    a[0]=0;
 
+    for(int i = 1 ; i <=n ; i++)
+        cin >> a[i];
+    ll count = 0;
+    ll k = 0;
+    for(int i = 1 ; i <= n ; i++)
+    {
+        if(a[i] == i)
+        {
+            count = count + k;
+            k++;
+        }
+    }
+    cout << count;
 }
 
 int main() 
 {	
-	int t;
-	    t=1;
+	ll t;
+    cin >> t;
 	while(t--)
 	{
 	   solve();

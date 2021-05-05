@@ -37,17 +37,29 @@ long long binpow(long long a, long long b) {
     }
     return res;
 }
+
 /* code */
 void solve()
-{
-    
-
+{   
+    ll n;
+    cin >> n;
+    ll count = 0;
+    for(ll i = 1 ; i <= 9 ;i++)
+    {
+        ll x = i;
+        while(x<=n)
+            {
+                count++;
+                x = (x*10 + i);
+            }
+    }
+    cout << count;
 }
 
 int main() 
 {	
 	int t;
-	    t=1;
+	cin >> t;
 	while(t--)
 	{
 	   solve();
@@ -55,3 +67,8 @@ int main()
 	}
 	return 0;
 }
+
+
+
+
+

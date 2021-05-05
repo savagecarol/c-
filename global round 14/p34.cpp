@@ -40,9 +40,38 @@ long long binpow(long long a, long long b) {
 /* code */
 void solve()
 {
-
-
-
+    ll n;
+    cin >> n;
+    string s;
+    cin >> s;
+    unordered_set<char> p; 
+    for(int i = 0 ; i < n;)
+    {
+        char c = s[i];
+        if(p.find(c)==p.end())
+        {
+        p.insert(c);
+        int j = i+1;
+        while(j < n)
+        {
+            if(s[j] == c)
+                {
+                    j++;
+                }
+            else
+            {
+                break;
+            }
+        }
+            i=j;
+        }
+        else
+        {
+            no();
+            return;
+        }
+    }
+    yes();
 }
 
 int main() 
