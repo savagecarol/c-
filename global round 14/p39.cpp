@@ -37,31 +37,26 @@ long long binpow(long long a, long long b) {
     }
     return res;
 }
+int gcd (int a, int b) {
+    while (b) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
 /* code */
 void solve()
 {
-    ll n;
-    cin >> n;
-    ll v[n];
-  map<int,int> map1;
-  for(int i = 0 ; i < n;i++)
-  {
-    cin>>v[i];
-    map1[v[i]-i]++;
-  }
-  ll ans=0;
-  for(auto i:map1)
-  {
-    ll val=i.se;
-    ans+=val*(val-1)/2;
-  }
-  cout<<ans<<"\n";
+    int a , b, c;
+    cin >> a >> b >> c;
+    int p = gcd(a, b);
+    (c%p==0)?yes():no();  
 }
 
 int main() 
 {	
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();
