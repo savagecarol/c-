@@ -47,6 +47,55 @@ int gcd (int a, int b) {
 /* code */
 void solve()
 {
+    ll n;
+    cin >> n;
+    ll a[n];
+    inp(i , n , a);
+    ll b[n];
+    for(int i = 0 ; i < n ;i++)
+    {
+        b[i] = a[i];
+    }
+
+    ll minn = 0 ;
+    ll value = INT_MAX;
+    for(int i = 0 ; i < n ;i++)
+    {
+        if(a[i] < value)
+        {
+            minn = i;
+            value = a[i];
+        }
+    }
+
+    int p[n];
+    int k = -1;
+    for(int i = 0 ; i < n ;i++)
+    {
+        if(a[i] % value !=0)
+        {
+            if(k<=a[i])
+                {
+                k=a[i];
+                }
+            else
+                {
+                    no();
+                    return;
+                }
+        }
+    }
+
+    sort(b , b + n);
+    k=0;
+    for(int i = 0; i < n; i++)
+	    if(a[i] != b[i] && a[i] % value > 0)
+	        	k = 1;
+
+	if(k)
+	    no();
+	else
+	    yes();
 
 }
 

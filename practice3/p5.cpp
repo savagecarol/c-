@@ -12,7 +12,7 @@ using namespace std;
 #define fi first
 #define se second
 #define pb push_back
- 
+#define mod 1000000007 
 /* loops */
 #define inp(i,n,arr) for(ll i=0 ; i<n ; i++) cin >> arr[i]
 #define out(i,n,arr) for(ll i=0 ; i<n ; i++) cout << arr[i] << " "
@@ -47,13 +47,42 @@ int gcd (int a, int b) {
 /* code */
 void solve()
 {
+    ll a , b, n;
+    cin >> a >> b >> n ;
+    ll v[n+1];
+    v[0] = a;
+    v[1] = b;
+    v[2] = b-a;
+    if(n==1)
+    {
+        if(a<0)
+        cout<<a+mod;
+        else
+        cout << a % mod; 
+    } 
+    else if(n == 2)
+    {
+         if(b<0)
+        cout<<b+mod;
+        else
+        cout << b % mod;
+    }
+    else
+    {
+        for(int i = 3 ; i <=n;i++)
+            {
+                v[i] = (v[i-1] - v[i-2]);
+            }
+            cout << v[n-1];
+    }
+
 
 }
 
 int main() 
 {	
 	ll t;
-    cin >> t;
+    t = 1;
 	while(t--)
 	{
 	   solve();
