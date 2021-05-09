@@ -47,11 +47,14 @@ int gcd (int a, int b) {
 /* code */
 void solve()
 {
-
+	ll a  , b;
+	cin >> a >> b;
+	cout << (a^b);
 }
 
 int main() 
 {	
+
 	ll t;
     cin >> t;
 	while(t--)

@@ -45,31 +45,30 @@ int gcd (int a, int b) {
     return a;
 }
 /* code */
+
 void solve()
 {
-    ll n;
-    cin >> n ;
-    ll a[n];
-    for(ll i = 0 ; i < n ;i++)
-    {
-        cin >> a[i];
-    }
-    ll freq[400] = {0};
-    ll ans = 0;
+    long double n  , k;
+    cin >> n >> k;
 
-        for (int i = 0; i < n; i++) 
-        {
-            ll rem = a[i] % 200;
-            ans+=freq[(200 + rem) % 200];
-            freq[rem]++;
-        }
-    cout << ans;
+    double p = 100 + k;
+    long double x=1;
+    while(true)
+    {
+        ll value = floor((p/100) *x);
+        x++;
+        cout << value << endl;
+        if(x>12)
+            break;
+    }
+
 }
 
 int main() 
 {	
+
 	ll t;
-    t = 1;
+    cin>> t;
 	while(t--)
 	{
 	   solve();

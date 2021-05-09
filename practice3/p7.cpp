@@ -47,13 +47,30 @@ int gcd (int a, int b) {
 /* code */
 void solve()
 {
+    ll n , k;
+    cin >> n >> k;
 
+    for(int i = 0 ; i < k ;i++)
+        {
+
+            if(n%200 == 0)
+            {
+                n = n/200;
+            }
+            else
+            {
+                string s = to_string(n);
+                s = s+ "200";
+                n = stoll(s);
+            }
+        }
+        cout << n;
 }
 
 int main() 
 {	
 	ll t;
-    cin >> t;
+    t= 1;
 	while(t--)
 	{
 	   solve();

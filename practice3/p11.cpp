@@ -45,31 +45,41 @@ int gcd (int a, int b) {
     return a;
 }
 /* code */
+unordered_map<string , int> v;
+
 void solve()
 {
-    ll n;
-    cin >> n ;
-    ll a[n];
-    for(ll i = 0 ; i < n ;i++)
-    {
-        cin >> a[i];
-    }
-    ll freq[400] = {0};
-    ll ans = 0;
-
-        for (int i = 0; i < n; i++) 
-        {
-            ll rem = a[i] % 200;
-            ans+=freq[(200 + rem) % 200];
-            freq[rem]++;
-        }
-    cout << ans;
+    string n;
+    cin >> n;
+    cout << v[n];
 }
 
 int main() 
 {	
+    queue<string> q;
+    q.push("4");
+    q.push("7");
+    v["4"] = 1;
+    v["7"] = 2;
+    int i = 3;
+    while(!q.empty())
+    {
+        string a = q.front(); 
+        q.pop();
+        v[a+"4"] = i;
+        q.push(a+"4");
+        i++;
+        v[a+"7"] = i;
+        i++;
+        q.push(a+"7");
+        if(a.length() == 9)
+            {
+                break;
+            }
+    }
+
 	ll t;
-    t = 1;
+    t=1;
 	while(t--)
 	{
 	   solve();
