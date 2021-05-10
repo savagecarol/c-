@@ -48,6 +48,7 @@ int gcd (int a, int b) {
 
 void solve()
 {
+    
 
 }
 

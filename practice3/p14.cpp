@@ -49,13 +49,37 @@ int gcd (int a, int b) {
 void solve()
 {
 
+
+    ll n , m;
+    cin >> n >> m;
+    ll a[n];
+    inp(i , n , a);
+
+    ll sum = 0;
+    ll count = 0, res = 0;
+    ll j = 0;
+    for(int i = 0 ; i < n ;i++)
+    {
+    
+        sum = sum + a[i];
+        if(sum <= m)
+            count++;
+        else
+        {
+            sum = sum - a[j];
+            j++;
+            res=max(res , count);
+        }
+    }
+    res = max(res , count);
+    cout << res;
 }
 
 int main() 
 {	
 
 	ll t;
-    cin>> t;
+    t = 1;
 	while(t--)
 	{
 	   solve();

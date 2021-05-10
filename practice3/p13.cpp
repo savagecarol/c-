@@ -45,17 +45,34 @@ int gcd (int a, int b) {
     return a;
 }
 /* code */
-
 void solve()
 {
+    ll n ,m ;
+    cin >> n >> m;
+    ll ans = 0;
+     while(m!=n)
+     {
+      if(m<n)
+      {
+        m++;
+      }
+      else 
+      {
 
+            if(m%2==0) m/=2;
+            else m++;
+      }
+      
+        ans++;
+     }
+     cout<<ans<<endl;
 }
 
 int main() 
 {	
 
 	ll t;
-    cin>> t;
+    t=1;
 	while(t--)
 	{
 	   solve();
