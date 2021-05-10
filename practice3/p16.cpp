@@ -48,6 +48,28 @@ int gcd (int a, int b) {
 
 void solve()
 {
+    ll n;
+    cin >> n;
+    vector<pair<int , int>> v;
+    int x , y;
+    for(int i = 0  ; i < n;i++)
+    {
+        cin >> x >> y;
+        v.push_back({x , y});
+    }
+    sort(v.begin() ,v.end());
+        ll res = INT_MIN;
+ 
+    for(int i = 0 ; i < n;i++)
+    {
+        if(min(v[i].second, v[i].first) >= res){
+            res = min(v[i].second, v[i].first);
+        }
+        else{
+           res = max(v[i].second, v[i].first);
+        }
+    }
+    cout << res;
 
 }
 
@@ -55,11 +77,10 @@ int main()
 {	
 
 	ll t;
-    cin>> t;
+    t=1;
 	while(t--)
 	{
 	   solve();
-       cout << endl;
 	}
 	return 0;
 }

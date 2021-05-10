@@ -48,18 +48,26 @@ int gcd (int a, int b) {
 
 void solve()
 {
+    ll a , b , c;
+    cin >> a >> b >> c;
 
+    ll z = a*b*c;
+    ll x = a+b+c;
+    ll r = (a*b)+c;
+    ll v = (a+b)*c;
+    ll n = a*(b+c);
+    ll m = a+(b*c);
+    cout << max({z , x , r, v, n , m});
 }
 
 int main() 
 {	
 
 	ll t;
-    cin>> t;
+    t=1;
 	while(t--)
 	{
 	   solve();
-       cout << endl;
 	}
 	return 0;
 }

@@ -49,41 +49,22 @@ int gcd (int a, int b) {
 void solve()
 {
 
-    ll n;
-    cin >> n;
-
-    string s;
-    cin >> s ;
-
-    ll count = 0 , res = 0 , j = 0;
-    for(int i =  0 ; i < n;)
+    ll a , b;
+    cin >> a >> b;
+    if(min(a,b) * 2 >= max(a, b))
     {
-        if(s[i] == 'A')
-        {
-            count = 0;
-            for( j = i+1 ; j < n ; j++)
-            {
-                if(s[j] == 'P')
-                    count++;
-                else
-                    break;
-            }
-            i = j;
-            res = max(res , count);
-        }
-        else
-        {
-            i++;
-        }
+        cout << (min(a,b) * 2) *  (min(a,b) * 2) ;
     }
-        cout << res;
+    else
+    {
+        cout << max(a , b) * max(a , b);
+    }
 }
-
 int main() 
 {	
 
 	ll t;
-    cin>> t;
+    cin >> t;
 	while(t--)
 	{
 	   solve();
@@ -91,4 +72,3 @@ int main()
 	}
 	return 0;
 }
-
