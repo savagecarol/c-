@@ -57,24 +57,38 @@ int gcd (int a, int b) {
         return count;
     }
 
+unordered_set<ll> r;
 void solve() 
 {
-    ll v , c , n , m  ;
-    cin >> v >> c >> n >> m;
-    if(v+c<n+m || v < m || c<m)
-        no();
-    else
-        yes();
+         int n ; cin >> n;
+     map<int,int> mpp;
+     int xx = sqrt(n);
+     mpp[1]++;
+     for(int i = 1; i  < xx + xx ; i++){
+            int tt = i*(i+1);
+            tt /= 2;
+            int ss = n - tt;
+            mpp[tt]++;
+            if(mpp[ss])
+            {
+            yes();
+            return ;
+            }
+            mpp[tt]++;
+     }
+    no();
+ 
+     return ;
 }
 
 int main() 
 {	
+
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();
-       cout << endl;
 	}
 	return 0;
 }

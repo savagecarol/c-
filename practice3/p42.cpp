@@ -59,22 +59,32 @@ int gcd (int a, int b) {
 
 void solve() 
 {
-    ll v , c , n , m  ;
-    cin >> v >> c >> n >> m;
-    if(v+c<n+m || v < m || c<m)
-        no();
-    else
-        yes();
+    ll n;
+    cin >> n;
+    unordered_set<string> k;
+    string x;
+    for(int i = 0 ; i < n ;i++)
+        {
+            cin >> x;
+            if(x.length() == 1 )
+                {
+                    k.insert(x);
+                }
+            else if(x[x.length()-1] == '0')
+                    k.insert(x);
+        }
+        cout << x.size();
+
 }
 
 int main() 
 {	
+
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();
-       cout << endl;
 	}
 	return 0;
 }
