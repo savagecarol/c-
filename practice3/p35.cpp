@@ -120,12 +120,12 @@ void solve()
         return ;
     }
 
-   for(int i =  ; i <n;i=i+2) 
+    char p = s[0];
+   for(int i =  1; i <n;i=i+2) 
     {
         char t = calculate(p , s[i] , s[i+1]);
-            p=t;
     }
-    cout << p;
+    cout << t;
 }
 
 int main() 
