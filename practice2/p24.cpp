@@ -29,15 +29,14 @@ typedef pair<ll, ll> pll;
 
 /* code */
 ll mod = 1000000007;
+
+bool sum(pair<string , ll> p , pair<string , ll> q)
+{
+    return p.second < q.second;
+}
 void solve()
 {
-    ll a[3];
-    cin >> a[0] >> a[1] >> a[2];
-    sort(a , a+3);
-    if(a[2] - a[1] == a[1] - a[0])
-        yes();
-    else
-        no();
+    
 }
 int main()
 {

@@ -56,17 +56,20 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
-
+    ll n;
+    cin >> n;
+    
 
 }
 int main() 
 {	
 
 	ll t;
-    t=1;
+    cin >> t;
 	while(t--)
 	{
 	   solve();
+       cout << endl;
 	}
 	return 0;
 }
