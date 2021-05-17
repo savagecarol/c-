@@ -57,10 +57,25 @@ int countSetBits(int n){
 void solve() 
 {
   
-
-
-
-  
+  ll n;
+  cin >> n;
+  int prod = 1;
+  vector<int> ans(10 ,  1);
+  int i = 0;
+  while(prod < n)
+  {
+      i=i%10;
+      prod = prod/ans[i];
+      ans[i]++;
+      prod = prod * ans[i];
+      i++;
+  }
+    string str = "codeforces";
+	for(int i = 0; i < 10; i ++) {
+		for(int j = 0; j < ans[i]; j ++) {
+			cout << str[i];
+		}
+	}
 }
 int main() 
 {	

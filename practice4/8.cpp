@@ -1,0 +1,130 @@
+/* code by savagecarol */
+#include <bits/stdc++.h>
+using namespace std;
+ 
+/* predefined value */
+#define yes() cout << "YES" 
+#define no() cout << "NO"
+#define one() cout << "1"
+#define zero() cout << "0"
+#define ll long long int
+#define mp make_pair
+#define fi first
+#define se second
+#define pb push_back
+ 
+/* loops */
+#define inp(i,n,arr) for(ll i=0 ; i<n ; i++) cin >> arr[i]
+#define out(i,n,arr) for(ll i=0 ; i<n ; i++) cout << arr[i] << " "
+#define loop(i,n) for(ll i=0;i<n;i++)
+#define arrs(i,n,arr,sum) for(ll i = 0 ; i < n ; i++) sum = sum + arr[i];
+#define arrmax(i , n , arr , maxx) for(ll i = 1 ; i < n;i++) maxx = max(maxx , arr[i]);
+#define arrmin(i , n , arr , minn) for(ll i = 0 ; i < n;i++) minn = min(minn , arr[i]); 
+ 
+ 
+/* typedef */
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+
+/* power function */
+long long binpow(long long a, long long b) {
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a;
+        a = a * a;
+        b >>= 1;
+    }
+    return res;
+}
+int gcd (int a, int b) {
+    while (b) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
+int countSetBits(int n){
+    unsigned int count = 0;
+    while (n) {
+        n &= (n - 1);
+        count++;
+        }
+    return count;
+}
+
+/*code*/
+void solve() 
+{
+    ll n;
+    cin >> n;
+    ll a[n];
+    inp(i , n , a);
+    ll b[n];
+    for(int i = 0 ; i < n ;i++)
+    {
+        b[i] = a[i];
+    }
+
+    ll count = 0;
+    for(int i = 0  ; i < n ;i++)
+    {
+        if(a[i] == 1)
+        {
+                ll ini = n+1 , exe = n+1;
+                    for(int j = i-1;j >=0 ;j++)
+                     {
+                        if(b[j] == 0)
+                        {
+                            ini = j;
+                            break;
+                        }
+                    }
+                    for(int j = i+1;j < n;j++)
+                    {
+                        if(b[j] == 0)
+                        {
+                            exe = j;
+                            break;
+                        }
+                    }
+
+                    if(ini == n+1 && exe!=n+1 )
+                    {
+                        b[exe] = 2; 
+                        count = count + abs(exe-i);
+                    }
+                    else if(ini != n+1 && exe==n+1 )
+                    {
+                        b[exe] = 2; 
+                        count = count + abs(ini-i);
+                    }
+                    else if(ini != n+1 && exe!=n+1 )
+                    { 
+                        count = count + min(abs(ini-i),abs(exe-i));
+                        if(abs(ini-i) > abs(exe-i))
+                            {
+                                b[exe] = 2;
+                            }
+                        else
+                            {
+                                b[ini] = 2;
+                            }
+                    }
+            
+            }
+        }
+    cout << count;
+}
+int main() 
+{	
+
+	ll t;
+    t=1;
+	while(t--)
+	{
+	   solve();
+       cout << endl;
+	}
+	return 0;
+}

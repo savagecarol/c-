@@ -58,35 +58,51 @@ void solve()
 {
     ll n;
     cin >> n;
-    ll a[n];
-    inp(i , n ,a);
-    ll b[n];
+    unordered_map<int , int> xx;
+    ll x;
     for(int i = 0 ; i < n;i++)
-    {
-        b[i] = a[i];
-    }
-    sort(b,b+n);
-    ll asc = 0 , dsc = 0;
-    for(int i = 0 ; i <n ;i++)
-    {
-        if(a[i] == b[i])
-            asc++;
-    }
+        {
+        cin >> x;
+        xx[x]++;
+        }
 
-    if(asc == n)
-        cout<<0;    
-    else if(a[0]== n &&  a[n-1] == 1)
-        cout << 3;
-    else if(a[0] == 1 || a[n-1] == n)
-        cout << 1;
+    if(xx.size()==2)
+           {
+               int i = 0;
+               int p = 0 , q = 0  , c , d;
+               for(auto r : xx)
+               {
+                   if(i==0)
+                   {
+                       p=r.second;
+                       c=r.first;
+                   }
+                   if(i==1)
+                   {
+                       q=r.second;
+                       d = r.first;
+                   }
+                   i++;
+               }
+               if(p == q)
+                {
+                    cout << "YES" << endl <<  c << " "<<d;
+                }
+                else
+                {
+                    no();
+                }
+           }
     else
-        cout << 2; 
+    {
+        no();
+    }
 }
 int main() 
 {	
 
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();

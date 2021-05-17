@@ -56,13 +56,23 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
- 
+ ll n;
+ cin >> n;
+ if(100%n!=0)
+    {
+        ll k = 100 - n;
+        ll p = gcd(n,k);
+        cout << (n/p) + (k/p); 
+
+    }
+ else
+    cout << 100/n;
 }
 int main() 
 {	
 
 	ll t;
-    t=1;
+    cin >> t;
 	while(t--)
 	{
 	   solve();

@@ -56,37 +56,58 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
-    ll n;
-    cin >> n;
-    ll a[n];
-    inp(i , n ,a);
-    ll b[n];
-    for(int i = 0 ; i < n;i++)
+    ll n , m;
+    cin >> n >> m;
+    string s;
+    cin >> s;
+    char x;
+    unordered_set<char> p;
+    for(int i = 0 ; i < m;i++)
     {
-        b[i] = a[i];
-    }
-    sort(b,b+n);
-    ll asc = 0 , dsc = 0;
-    for(int i = 0 ; i <n ;i++)
-    {
-        if(a[i] == b[i])
-            asc++;
+        cin >> x;
+        p.insert(x);
     }
 
-    if(asc == n)
-        cout<<0;    
-    else if(a[0]== n &&  a[n-1] == 1)
-        cout << 3;
-    else if(a[0] == 1 || a[n-1] == n)
-        cout << 1;
-    else
-        cout << 2; 
+    ll a[n];
+    for(int i = 0 ; i < n;i++)
+    {
+        if(p.find(s[i]) != p.end())
+        {
+            a[i] = 1;
+        }
+        else
+        {
+            a[i] = 0;
+        }
+    }
+
+    ll count = 0 , res = 0;
+    for(int i = 0 ; i < n;)
+    {
+        if(a[i] == 0)
+            {i++;}
+        else
+        {
+            ll ans = 1;
+            count=1;
+            i=i+1;
+            while(i < n && a[i] ==1)
+            {
+                i++;
+                count++;
+                ans = ans + count;
+            }
+            res = res + ans;
+        }   
+    }
+    cout << res;
+
 }
 int main() 
 {	
 
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();

@@ -56,37 +56,38 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
-    ll n;
-    cin >> n;
-    ll a[n];
-    inp(i , n ,a);
-    ll b[n];
-    for(int i = 0 ; i < n;i++)
-    {
-        b[i] = a[i];
-    }
-    sort(b,b+n);
-    ll asc = 0 , dsc = 0;
-    for(int i = 0 ; i <n ;i++)
-    {
-        if(a[i] == b[i])
-            asc++;
-    }
 
-    if(asc == n)
-        cout<<0;    
-    else if(a[0]== n &&  a[n-1] == 1)
-        cout << 3;
-    else if(a[0] == 1 || a[n-1] == n)
-        cout << 1;
-    else
-        cout << 2; 
+    ll a , b;
+    cin >> a >> b;
+    ll count = 0;
+    while(a > 0 && b > 0)
+    {
+        if(a>b)
+          {
+                b++;
+                a=a-2;
+          }
+        else if(b>a)
+            {
+                a++;
+                b=b-2;
+            }
+        else
+        {
+            b++;
+            a=a-2;
+
+        }
+        count++;
+
+    }
+cout << count;
 }
 int main() 
 {	
 
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();
