@@ -37,13 +37,7 @@ long long binpow(long long a, long long b) {
     }
     return res;
 }
-int gcd (int a, int b) {
-    while (b) {
-        a %= b;
-        swap(a, b);
-    }
-    return a;
-}
+
 int countSetBits(int n){
     unsigned int count = 0;
     while (n) {
@@ -54,11 +48,21 @@ int countSetBits(int n){
 }
 
 /*code*/
+long long get(long long x)
+{
+ return x*(x-1)/2;
+ 
+}
+
 void solve() 
 {
-    ll n;
-    
-
+    ll n , m;
+    cin >> n >> m;
+    ll p = n-m+1;
+    ll a = n/m;
+    ll b = n%m;
+    ll ans1 = get(a+1)*(b) + get(a)*(m-b); 
+    cout <<ans1<< " "<<get(p);
 }
 int main() 
 {	

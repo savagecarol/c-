@@ -37,13 +37,7 @@ long long binpow(long long a, long long b) {
     }
     return res;
 }
-int gcd (int a, int b) {
-    while (b) {
-        a %= b;
-        swap(a, b);
-    }
-    return a;
-}
+
 int countSetBits(int n){
     unsigned int count = 0;
     while (n) {
@@ -57,8 +51,35 @@ int countSetBits(int n){
 void solve() 
 {
     ll n;
-    
+    cin >> n;
+    vector<int> a(n);
+    inp(i , n , a);
+    if(n==1)
+    {
+        cout << "yes" << endl << 1 << " " << 1;
+        return ;
+    }
 
+    int l = 0;
+	while (l + 1 < n && a[l] < a[l + 1])
+    {
+	    	++l;
+	}
+
+	int r = l + 1;
+	while (r < n && a[r] < a[r - 1]) 
+    {
+		++r;
+	}
+	reverse(a.begin() + l, a.begin() + r);
+	for (int i = 1; i < n; ++i) {
+		if (a[i] < a[i - 1]) {
+			puts("no");
+			return ;
+		}
+	}
+	puts("yes");
+	printf("%d %d\n", l + 1, r);
 }
 int main() 
 {	

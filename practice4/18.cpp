@@ -54,17 +54,36 @@ int countSetBits(int n){
 }
 
 /*code*/
+
+
+
 void solve() 
 {
-    ll n;
-    
+    ll n , k;
+    cin >> n >> k;
+    if(n>k)
+    {
+        cout << k;
+        return;
+    }
+    ll cnt = k/(n-1);
+	ll num = cnt*(n-1);
+	ll pos = cnt*n;
+	if(num==k)cout<<pos-1;
+	else{
+			pos+=(k-num);
+			cout<<pos;		
+		}
+ 
+ 
+
 
 }
 int main() 
 {	
 
 	ll t;
-    t=1;
+    cin >> t;
 	while(t--)
 	{
 	   solve();

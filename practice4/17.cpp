@@ -54,11 +54,35 @@ int countSetBits(int n){
 }
 
 /*code*/
+
+
+
 void solve() 
 {
     ll n;
-    
+    cin >> n;
+    ll a[n];
+    cin >> a[0];
+    map<int, int> b;
+    b[a[0]] = 1;
+    ll sum = a[0];
+    for(int i = 1 ; i <n;i++)
+    {
+        cin >> a[i];
+        sum = sum + a[i];
+        b[sum] = i+1;
+    }
 
+    int m;
+    cin >> m;
+    int c[m];
+    inp(i , m  , c);
+
+    for(int i = 0 ; i < m ;i++)
+    {
+        auto k = b.lower_bound(c[i]);
+        cout << k->second << endl;
+    }
 }
 int main() 
 {	
@@ -68,7 +92,6 @@ int main()
 	while(t--)
 	{
 	   solve();
-       cout << endl;
 	}
 	return 0;
 }
