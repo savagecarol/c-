@@ -50,44 +50,7 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
-    ll n;
-    cin >> n;
-    ll a[n];
-    inp(i , n , a);
 
-
-    ll odd = 0 , even = 0;
-    vector<int> o;
-    vector<int> e;
-    for(int i = 0 ; i < n; i++)
-    {
-        if(a[i] %2 !=0)
-            {
-                odd++;
-                o.push_back(a[i]);
-            }
-        else
-           {
-                even++;
-                e.push_back(a[i]);
-           }
-    }
-    if(odd%2==0 && even%2==0)
-    {
-        yes();
-        return;
-    }
-    sort(a , a+n);
-
-    for(int i = 0 ; i < n-1  ;i++)
-    {
-        if(a[i+1] - a[i] == 1)
-        {
-            yes();
-            return;
-        }
-    }
-    no();
 
 }
 int main() 
