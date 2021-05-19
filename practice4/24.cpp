@@ -48,17 +48,18 @@ int countSetBits(int n){
 }
 
 /*code*/
+unordered_set<ll> c;
 void solve() 
 {
-    ll a , b;
-    cin >> a >> b;
-    ll ans = (a + b) / 3;
-	ans = min(ans, min(a, b));
-	cout << ans ;
+        int n;
+        cin >> n;
+		int k = 2, pow = 1;
+		while(n % ((k<<pow) - 1) != 0) pow ++;
+		int ans = (n / ((k << pow)-1));
+		cout << ans ;
 }
 int main() 
 {	
-
 	ll t;
     cin >> t;
 	while(t--)
