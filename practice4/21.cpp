@@ -37,13 +37,7 @@ long long binpow(long long a, long long b) {
     }
     return res;
 }
-int gcd (int a, int b) {
-    while (b) {
-        a %= b;
-        swap(a, b);
-    }
-    return a;
-}
+
 int countSetBits(int n){
     unsigned int count = 0;
     while (n) {
@@ -54,43 +48,17 @@ int countSetBits(int n){
 }
 
 /*code*/
-
-
-
 void solve() 
 {
 
-    int n; cin >> n;
-    vector <ll> A(n);
-    vector <int> cnts(103, 0);
-    vector <bool> w(103, false);
-    for (ll &i: A) { 
-        cin >> i; 
-        cnts[i]++;
-    }
-    for (int i = 0; i < n; ++i) {
-        for (int j = i+1; j < n; ++j) {
-            w[A[i] + A[j]] = true;
-        }
-    }
- 
-    ll ans = 0;
-    for (int i = 1; i <= 100; ++i) {
-        if (!w[i]) continue;
-        ll res = 0;
-        for (int j = 1; j <= i / 2; ++j) {
-            if (j*2 == i) {
-                res += cnts[j] / 2;
-            }
-            else {
-                res += min(cnts[j], cnts[i - j]);
-            }
-        }
-        ans = max(ans, res);
-    }
- 
-    cout << ans << endl;
-
+    ll n;
+    cin >> n;
+    vector<int> a(n);
+        for (auto &it : a) cin >> it;
+		int pos = n - 1;
+		while (pos > 0 && a[pos - 1] >= a[pos]) --pos;
+		while (pos > 0 && a[pos - 1] <= a[pos]) --pos;
+		cout << pos << endl;
 }
 int main() 
 {	
@@ -100,7 +68,6 @@ int main()
 	while(t--)
 	{
 	   solve();
-
 	}
 	return 0;
 }

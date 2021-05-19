@@ -59,48 +59,38 @@ int countSetBits(int n){
 
 void solve() 
 {
+    int n , m;
+    cin >>n >> m;
+    int a[n];
+    inp(i , n ,a);
 
-    int n; cin >> n;
-    vector <ll> A(n);
-    vector <int> cnts(103, 0);
-    vector <bool> w(103, false);
-    for (ll &i: A) { 
-        cin >> i; 
-        cnts[i]++;
-    }
-    for (int i = 0; i < n; ++i) {
-        for (int j = i+1; j < n; ++j) {
-            w[A[i] + A[j]] = true;
+    unordered_set<int> p;
+    unordered_map<int , int> q;
+    int count = 0;
+    for(int i = n-1 ; i >=0 ;i--)
+    {
+        if(p.find(a[i]) == p.end())
+        {
+            p.insert(a[i]);
+            count++;
         }
+        q[i+1] = count; 
     }
- 
-    ll ans = 0;
-    for (int i = 1; i <= 100; ++i) {
-        if (!w[i]) continue;
-        ll res = 0;
-        for (int j = 1; j <= i / 2; ++j) {
-            if (j*2 == i) {
-                res += cnts[j] / 2;
-            }
-            else {
-                res += min(cnts[j], cnts[i - j]);
-            }
-        }
-        ans = max(ans, res);
-    }
- 
-    cout << ans << endl;
 
+    int x;
+    for(int i = 0 ; i < m ;i++){
+        cin >> x;
+        cout << q[x] << endl;
+    }
 }
 int main() 
 {	
 
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();
-
 	}
 	return 0;
 }
