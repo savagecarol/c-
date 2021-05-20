@@ -67,73 +67,20 @@ void solve()
     cin >> n;
     string s1;
     cin >> s1;
-    string s2 = "";
-    vector<int> k;
-    for(int i = 0 ; i <n ;i++)
-    {
-        s2 = s2 + s1[n-i-1];
-        if(s1[i] == '0')
-            k.push_back(i);
-    }
-    int alice = 0 , bob = 0;
-    bool turn = true , cont = true;
-    int count = k.size();
-    while(count > 0)
-    {
-        if(s1!=s2 && cont == true)
+    ll count = 0;
+    for(int i = 0 ; i < n ;i++)
         {
-             cont = false;
-             if(turn)turn = false;
-             else turn = true;    
+            if(s1[i] == '0')
+                count++;
         }
-        else
-        {
-        int i = 0;
-        for(i = 0 ; i < count; i++)
-            {   
-                s1[k[i]] = '1';
-                s2[n-k[i]-1] = '1';
-                if(s1 == s2)
-                    {
-                        break;
-                    }
-            else
-                {
-                s1[k[i]] = '0';
-                s2[n-k[i]-1] = '0';
-                }    
-            }
-            if(i==count)
-            {
-                s1[k[i-1]] = '1';
-                s2[n-k[(i-1)]-1] = '1';
-            }
-            else
-            {
-                k.erase(k.begin()+i);
-            }
-                     if(turn)
-                        {
-                        alice++;
-                        turn = false;
-                        }
-                        else
-                        {
-                        bob++;
-                        turn = true;
-                        }                   
-       
-            count--;
-            cont = true;
-        }
-    }
 
-    if(bob > alice)
-        cout <<"ALICE";
-    else if(alice > bob)
+    if(count == 0)
+        cout <<"DRAW";
+    else if(count%2 ==0 || count == 1)
         cout <<"BOB";
     else
-        cout <<"DRAW";
+        cout <<"ALICE";
+
 }
 int main() 
 {	
