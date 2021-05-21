@@ -61,61 +61,36 @@ string decToBinary(int n)
 }
 
 /*code*/
-
 void solve() 
 {
-    ll n , m;
-    cin >> n >> m;
-    int count = 0;
-    int x;
-    int a[n][m];
-    for(int i = 0 ; i <  n ; i++)
+    string s;
+    cin >> s;
+    s = "WUB"+ s + "WUB";
+    int n = s.size();
+    for(int i = 0 ; i < n;)
     {
-        for(int j = 0 ; j < m ;j++)
+        int j = i;
+        while(j < n)
         {
-            cin >> a[i][j];
+            if(s[j] == 'W' && s[j+1] == 'U' && s[j+2] == 'B') j = j+3;
+            else break; 
         }
+        while(j < n)
+        {
+            if(s[j] == 'W' && s[j+1] == 'U' && s[j+2] == 'B')
+                break;
+            cout << s[j];
+            j++; 
+        }
+        cout << " ";
+        i=j;
     }
 
-    for(int i = 0 ; i < n ;i++)
-    {
-         for(int j = 0 ; j < m ;j++)
-        {
-            if(a[i][j] == 0)
-            {
-                bool k = true;
-                for(int p = 0 ; p < n ;p++)
-                {
-                    if(a[p][j] == 1)
-                    {
-                        k=false;
-                    }
-                }
-                for(int p = 0 ; p < m ;p++)
-                {
-                    if(a[i][p] == 1)
-                    {
-                        k=false;
-                    }
-                }
-                if(k)
-                    {
-                        a[i][j] =1;
-                        count++;
-                    }
-            }
-        }
-
-    }
-
-    if(count%2==0)  cout << "Vivek";
-    else    cout << "Ashish";
 }
 int main() 
 {	
-
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();

@@ -64,13 +64,29 @@ string decToBinary(int n)
 
 void solve() 
 {
+    ll a[5];
+    inp(i , 5 , a);
 
+    for(int i = 1 ;i<=500 ;i++)
+    {
+        ll sum = 0;
+        for(int j = 0 ; j<5 ;j++)
+        {
+            sum = sum + (a[j] - i);
+        }
+        if(sum == 0)
+        {
+            cout << i;
+            return;
+        }
+    }
+    cout << -1;
 }
 int main() 
 {	
 
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();

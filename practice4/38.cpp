@@ -64,58 +64,17 @@ string decToBinary(int n)
 
 void solve() 
 {
-    ll n , m;
-    cin >> n >> m;
-    int count = 0;
-    int x;
-    int a[n][m];
-    for(int i = 0 ; i <  n ; i++)
-    {
-        for(int j = 0 ; j < m ;j++)
-        {
-            cin >> a[i][j];
-        }
-    }
-
-    for(int i = 0 ; i < n ;i++)
-    {
-         for(int j = 0 ; j < m ;j++)
-        {
-            if(a[i][j] == 0)
-            {
-                bool k = true;
-                for(int p = 0 ; p < n ;p++)
-                {
-                    if(a[p][j] == 1)
-                    {
-                        k=false;
-                    }
-                }
-                for(int p = 0 ; p < m ;p++)
-                {
-                    if(a[i][p] == 1)
-                    {
-                        k=false;
-                    }
-                }
-                if(k)
-                    {
-                        a[i][j] =1;
-                        count++;
-                    }
-            }
-        }
-
-    }
-
-    if(count%2==0)  cout << "Vivek";
-    else    cout << "Ashish";
+    ll n;
+    cin >> n;
+    ll a[n];
+    inp(i , n , a);
+    sort(a , a+n);
+    out(i , n , a);
 }
 int main() 
 {	
-
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();

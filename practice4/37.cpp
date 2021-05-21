@@ -64,7 +64,25 @@ string decToBinary(int n)
 
 void solve() 
 {
+    ll n;
+    cin >> n;
+    int x;
+    unordered_map<int , vector<int>> a;
+    for(int i = 0 ; i < n ;i++)
+    {
+        cin >> x;
+        a[x].push_back(i);
+    }
 
+    for(auto r : a)
+    {
+        for(int i = 1 ; i < r.second.size()  ;i++)
+        {
+            if(r.second[i]-r.second[0]>1)
+                {yes();return;}
+        }
+    }
+    no();
 }
 int main() 
 {	
