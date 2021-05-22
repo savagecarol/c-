@@ -18,7 +18,7 @@ using namespace std;
 #define out(i,n,arr) for(ll i=0 ; i<n ; i++) cout << arr[i] << " "
 #define loop(i,n) for(ll i=0;i<n;i++)
 #define arrs(i,n,arr,sum) for(ll i = 0 ; i < n ; i++) sum = sum + arr[i];
-#define arrmax(i , n , arr , maxx) for(ll i = 1 ; i < n;i++) maxx = max(maxx , arr[i]);
+#define arrmax(i , n , arr , maxx) for(ll i = 0 ; i < n;i++) maxx = max(maxx , arr[i]);
 #define arrmin(i , n , arr , minn) for(ll i = 0 ; i < n;i++) minn = min(minn , arr[i]); 
  
 #define mod 1e6
@@ -61,19 +61,45 @@ string decToBinary(int n)
     return x;
 }
 
-/*code*/
-void solve() 
-{
-    ll n;
-    cin >> n;
-    ll count = 0;
-    while(n>0)
+ int powerOfTwo(int n)
     {
-        if(n%2!=0)count++;
-        n=n/2;
+        return n && (!(n & (n-1)));
     }
-    cout<< count;
-}
+
+/*code*/
+void solve()
+{
+    ll n;cin >> n;
+    ll x;
+    vector<ll> po;
+    vector<ll> ne;
+    ll zero = 0;
+    for(int i = 0 ; i < n;i++)
+    {
+        cin >> x;
+        if(x>=1)
+            po.push_back(x);
+        else if(x<=-1)
+            ne.push_back(x);
+        else
+            zero++;
+    }
+    ll count = 0;
+    for(ll i = 0 ; i < po.size() ; i++)
+    {
+        count = count + (po[i] - 1);
+    }
+    for(ll i = 0 ; i < ne.size() ; i++)
+    {
+        count = count + abs(ne[i] + 1);
+    }
+    if(ne.size()%2==1 && zero==0)
+       {
+           count=count+2;
+       }
+    else count = count+zero;
+    cout << count;
+}  
 int main() 
 {	
 	ll t;

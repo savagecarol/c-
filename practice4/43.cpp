@@ -66,13 +66,18 @@ void solve()
 {
     ll n;
     cin >> n;
-    ll count = 0;
-    while(n>0)
+    ll a[n];
+    inp(i , n , a);
+
+    vector<ll> p;
+    p.push_back(a[n-1]);
+    ll maxx = a[n-1];
+    for(ll i = n-2 ; i >=0 ;i--)
     {
-        if(n%2!=0)count++;
-        n=n/2;
+        maxx = max(a[i], maxx);
+        p.push_back(maxx);
     }
-    cout<< count;
+    for(ll i = n-1; i >=0 ;i--) cout << p[i] << " ";
 }
 int main() 
 {	

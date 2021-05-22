@@ -21,7 +21,6 @@ using namespace std;
 #define arrmax(i , n , arr , maxx) for(ll i = 1 ; i < n;i++) maxx = max(maxx , arr[i]);
 #define arrmin(i , n , arr , minn) for(ll i = 0 ; i < n;i++) minn = min(minn , arr[i]); 
  
-#define mod 1e6
  
 /* typedef */
 typedef pair<int, int> pii;
@@ -38,7 +37,13 @@ long long binpow(long long a, long long b) {
     }
     return res;
 }
-
+int gcd (int a, int b) {
+    while (b) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
 int countSetBits(int n){
     unsigned int count = 0;
     while (n) {
@@ -48,34 +53,38 @@ int countSetBits(int n){
     return count;
 }
 
-string decToBinary(int n)
-{
-    string x="";
-    for (int i = 31; i >= 0; i--) {
-        int k = n >> i;
-        if (k & 1)
-            x=x+"1";
-        else
-            x=x+"0";
+ int powerOfTwo(int n)
+    {
+        return n && (!(n & (n-1)));
     }
-    return x;
-}
-
 /*code*/
+map<ll , ll> S;
 void solve() 
 {
-    ll n;
-    cin >> n;
-    ll count = 0;
-    while(n>0)
+    int n;
+	cin >> n;
+	ll ans = 0;
+	for(int i = 0;i < n;i ++)
     {
-        if(n%2!=0)count++;
-        n=n/2;
-    }
-    cout<< count;
+		ll num;
+		cin >> num;
+ 
+		ll p = 1LL;
+		for(int i = 0;i < 40;i ++){
+			if(S.find(p - num) != S.end()){
+				ans += S[p - num];
+			}
+			p *= 2LL;
+		}
+		S[num] ++;
+	}
+	cout << ans ;
+
 }
+
 int main() 
-{	
+{
+
 	ll t;
     t=1;
 	while(t--)
