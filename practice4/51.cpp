@@ -53,25 +53,32 @@ int countSetBits(int n){
     return count;
 }
 
- int powerOfTwo(int n)
-    {
-        return n && (!(n & (n-1)));
+void kth_string(int n , int m,int k)
+{
+
+    for (int i = n - m; i >= 0; i--) {
+        if (k <= (n - i - 1)) {
+            for (int j = 0; j < n; j++) {
+                if (j == i or j == n - k)
+                    cout << 'b';
+                else
+                    cout << 'a';
+            }
+            break;
+        }
+        k -= (n - i - 1);
     }
+} 
+  
 /*code*/
 void solve() 
 {
-
+    ll n , m , k;
+    cin >> n >> m >> k;
+    kth_string(n+m , m , k);
 }
-
 int main() 
 {
-
-	ll t;
-    t=1;
-	while(t--)
-	{
-	   solve();
-       cout << endl;
-	}
+    solve();
 	return 0;
 }

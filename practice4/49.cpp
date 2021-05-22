@@ -60,9 +60,19 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
+    string s;
+    cin >> s;
 
+    for(int i = s.length()-1 ; i >=0;i--)
+    {
+        if(s[i] == '6')
+            cout<< '9';
+        else if(s[i] == '9')
+            cout<<'6';
+        else
+            cout << s[i];
+    }
 }
-
 int main() 
 {
 

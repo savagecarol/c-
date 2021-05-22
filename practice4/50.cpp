@@ -60,18 +60,28 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
+    ll n;
+    cin >> n;
+    ll a[n+1] , b[n+1] , c[n+1];
+    for(int i = 1; i <=n ;i++)cin >> a[i];
+    for(int i = 1; i <=n ;i++)cin >> b[i];
+    for(int i = 1; i <=n ;i++)cin >> c[i];
 
+    unordered_map<int , int> k;
+    for(int i = 1 ; i <=n;i++)
+    {
+       k[b[c[i]]]++;
+    }
+    ll count = 0;
+    for(ll i = 1 ; i <=n ;i++)
+    {
+        if(k.find(a[i])!=k.end())
+            count = count + k[a[i]];
+    }
+    cout  << count;
 }
-
 int main() 
 {
-
-	ll t;
-    t=1;
-	while(t--)
-	{
-	   solve();
-       cout << endl;
-	}
+    solve();
 	return 0;
 }
