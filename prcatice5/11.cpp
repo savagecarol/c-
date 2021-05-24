@@ -60,31 +60,26 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
-   int N,K;
-  cin>>N>>K;
-  set<int>s;
-  for (int i=0;i<N;i++){
-    int a;
-    cin>>a;
-    s.insert(a);
-  }
-  if (s.size()>K){
-    cout<<-1;
-    return;
-  }
-    cout << N*K <<endl;
-    for (int i=0;i<N;i++){
-    for (int b:s)
-      cout<<b<<' ';
-    for (int j=0;j<K-(int)s.size();j++)
-      cout<<1<<' ';
-  }
+   ll n;
+   cin >> n;
+   if(n>=0)
+    cout << n;
+    else
+    {
+        n = -1*n ; 
+        ll k = n;
+        k=k/10;
+        ll p = n/100;
+        ll q = n%10;
+        ll r = stol(to_string(p)+to_string(q));
+        (min(r , k) == 0) ? cout << 0 : cout << "-" << min(r, k);
+    }
 }
 int main() 
 {
 
 	ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();

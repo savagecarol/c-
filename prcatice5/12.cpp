@@ -60,25 +60,21 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
-   int N,K;
-  cin>>N>>K;
-  set<int>s;
-  for (int i=0;i<N;i++){
-    int a;
-    cin>>a;
-    s.insert(a);
+  ll n;
+  cin >> n;
+  vector<ll> a(n);
+  inp(i , n , a);
+  sort(a.begin(),a.end());
+    ll ans = 0 , count = 0;
+  for(ll i = 0 ; i < n ; i++ )
+  {
+      if(++count == a[i])
+            {
+                ans++;
+                count = 0;
+            }
   }
-  if (s.size()>K){
-    cout<<-1;
-    return;
-  }
-    cout << N*K <<endl;
-    for (int i=0;i<N;i++){
-    for (int b:s)
-      cout<<b<<' ';
-    for (int j=0;j<K-(int)s.size();j++)
-      cout<<1<<' ';
-  }
+  cout << ans;
 }
 int main() 
 {
