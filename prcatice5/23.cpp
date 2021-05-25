@@ -61,20 +61,35 @@ int countSetBits(int n){
 
 void solve() 
 { 
-    ll n;
-    cin >> n;
-    if(n==1)
-    {cout << 1 ; return;}
-    if(n==2 || n==3){cout << "NO SOLUTION";return;}
-    if(n==4){cout <<2 <<" " << 4 << " " << 1 << " " << 3;return;} 
-    for(ll i = 1 ; i <=n  ; i=i+2)cout << i << " " ;
-    for(ll i = 2 ; i <=n  ; i=i+2)cout << i << " " ;
+    ll x , y , res;
+    cin >> x >> y;
+    if(x==y)
+    {
+        res = (max(x, y) * max(x , y)) -(min(x,y)-1);
+    }
+    else if(x%2==0 && x>y)
+    {
+        res = (max(x, y) * max(x , y)) -(min(x,y)-1);  
+    }
+    else if(x%2!=0 && x>y)
+    {
+        res = (max(x, y) * max(x , y)) - (2*x)+y+1;
+    }
+    else if(y%2==0 && y>x)
+    {
+          res = (max(x, y) * max(x , y)) - (2*y)+x+1;
+    }
+    else if(y%2!=0 && y>x)
+    {
+        res = (max(x, y) * max(x , y)) -(min(x,y)-1); 
+    }
+    cout << res;
 }
 int main() 
 {
 
 	ll t;
-    t=1;
+    cin >> t;
 	while(t--)
 	{
 	   solve();
