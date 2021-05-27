@@ -58,38 +58,46 @@ int countSetBits(int n){
         return n && (!(n & (n-1)));
     }
 /*code*/
+bool comp(string a , string b)
+{
+    if(b.size() > a.size())return true;
+    return false;
+}
 
 void solve() 
 {
-    ll n , k;
-    cin >> n >> k;
-    unordered_set<ll> p;
-    ll a[n];
-    inp(i , n, a);
-    for(ll i =  0 ; i < n;i++)
-    {
-        p.insert(a[i]);
-    }
-    if(p.size()<k)
-    {
-        cout<< "NO";
-    }
-    else
-    {
-        unordered_set<ll> r;
-        ll t= 0;
-        cout << "YES" << endl;
-        for(ll i = 0 ; i < n;i++)
-        {
-            if(r.find(a[i])==r.end() && t<k)
-            {
-                cout << i+1 << " ";
-                t++;
-                r.insert(a[i]);
-            }
-        }
-    }
+    ll n;
+    cin >> n;
 
+    vector<string> p;
+    string x;
+    for(ll i = 0 ; i < n;i++)
+    {
+        cin >> x;
+        p.push_back(x);
+    }
+    sort(p.begin() , p.end() , comp);
+    for(ll i = 0 ; i < n-1 ;i++)
+    {
+            bool var = false;
+            ll r =p[i].size();
+            for(ll j = 0 ;j<=p[i+1].size()-r ;j++)
+            {
+                if(p[i] == p[i+1].substr(j , r)) 
+                    var = true;
+            }
+            if(var == false)
+                {
+                    no();
+                    cout << endl;
+                    return;
+                }
+        }
+    cout <<"YES" << endl;
+    for(ll i = 0 ; i < n;i++)
+    {
+        cout << p[i] << endl;
+    }
 }
 int main() 
 {
@@ -98,7 +106,6 @@ int main()
 	while(t--)
 	{
 	   solve();
-       cout << endl;
 	}
 	return 0;
 }

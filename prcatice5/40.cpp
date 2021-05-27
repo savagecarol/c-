@@ -58,37 +58,36 @@ int countSetBits(int n){
         return n && (!(n & (n-1)));
     }
 /*code*/
+bool comp(string a , string b)
+{
+    if(b.size() > a.size())return true;
+    return false;
+}
 
 void solve() 
 {
-    ll n , k;
-    cin >> n >> k;
-    unordered_set<ll> p;
-    ll a[n];
-    inp(i , n, a);
-    for(ll i =  0 ; i < n;i++)
-    {
-        p.insert(a[i]);
-    }
-    if(p.size()<k)
-    {
-        cout<< "NO";
-    }
-    else
-    {
-        unordered_set<ll> r;
-        ll t= 0;
-        cout << "YES" << endl;
-        for(ll i = 0 ; i < n;i++)
-        {
-            if(r.find(a[i])==r.end() && t<k)
-            {
-                cout << i+1 << " ";
-                t++;
-                r.insert(a[i]);
-            }
-        }
-    }
+    ll m;
+    cin >> m; 
+    ll r , k;
+    vector<vector<int>> p(m);
+    vector<int> a;
+    vector<unordered_set<int>> s(m);
+   for(ll i = 0 ; i < m;i++)
+   {
+       cin >> r;
+       ll sum = 0; 
+       for(ll j = 0 ; j < r;j++)
+       {
+           cin >> k;
+           sum = sum + k;
+           p[i].push_back(k);
+           s[i].insert(k);
+       }
+       a.push_back(sum);
+   }
+
+
+
 
 }
 int main() 
