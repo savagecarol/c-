@@ -1,3 +1,4 @@
+
 /* code by savagecarol */
 #include <bits/stdc++.h>
 using namespace std;
@@ -52,6 +53,9 @@ int powerOfTwo(int n){
 /*code*/
 void solve() 
 {
+
+    
+
  
 }
 int main() 

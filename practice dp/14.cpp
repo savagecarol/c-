@@ -52,6 +52,8 @@ int powerOfTwo(int n){
 /*code*/
 void solve() 
 {
+
+    
  
 }
 int main() 
