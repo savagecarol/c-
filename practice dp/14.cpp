@@ -53,8 +53,25 @@ int powerOfTwo(int n){
 void solve() 
 {
 
-    
- 
+   int n;
+   cin >> n;
+   vector<int> dp(n+1 , INT_MAX);
+   if(n<10) {cout << 1;return;}
+   dp[0]=0;
+   for(int i = 1 ; i <=9 ;i++) dp[i] = 1;
+   
+   for(int i = 10 ; i <=n ;i++)
+   {
+       int k = i;
+       while(k!=0)
+       {
+           int x = k%10;
+           if(x!=0)
+             dp[i] = min(dp[i-x]+1, dp[i]);
+           k=k/10;
+       }
+   }
+   cout << dp[n];
 }
 int main() 
 {

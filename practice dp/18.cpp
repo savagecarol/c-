@@ -51,34 +51,59 @@ int powerOfTwo(int n){
         return n && (!(n & (n-1)));
     }
 /*code*/
-int maxSubArraySum(int a[], int size)
-{
-    int max_so_far = INT_MIN, max_ending_here = 0;
-    for (int i = 0; i < size; i++)
-    {
-        max_ending_here = max_ending_here + a[i];
-        if (max_so_far < max_ending_here)
-            max_so_far = max_ending_here;
- 
-        if (max_ending_here < 0)
-            max_ending_here = 0;
-    }
-    return max_so_far;
-}
-
 void solve() 
 {
     ll n , k;
     cin >> n >> k;
-    int sum = 0;
-    int a[n];
-    for(ll i = 0 ; i < n;i++)
+    string s;
+    cin >> s;
+
+    ll sum = 0;
+    for(ll i = 0 ; i < n-1;i++)
     {
-        ll x;
-        cin >> x;
-        a[i] = x*(i+1); 
+        if(s[i] == '0' && s[i+1] == '1')sum++;
+        else if(s[i] == '1' && s[i+1] == '0')sum++;
+        else if(s[i] == '0' && s[i+1] == '0')sum=sum+2;
+        else if(s[i] == '1' && s[i+1] == '1')sum=sum+2;
     }
-    cout <<maxSubArraySum(a,n);
+    ll x;
+    for(ll i = 0 ; i < k;i++)
+    {
+        cin >> x;
+        x=(x-1)%n;
+        if(s[x] == '0') s[x]='1';
+        else s[x] = '0';
+        if(n>2)
+        {
+        if(x==0)
+        {
+            if(s[x] == s[x+1])sum++;
+            else sum--; 
+        }
+        else if(x==n-1)
+        {
+            if(s[x] == s[x-1])sum++;
+            else sum--; 
+        }
+        else 
+        {
+            if(s[x] == s[x-1])sum++;
+            else sum--; 
+            if(s[x] == s[x+1])sum++;
+            else sum--; 
+        }
+              cout << sum << endl;
+        }
+        if(n==1)
+        {
+            cout << 0 << endl;
+        }
+        else if(n==2)
+        {
+            if(s[x] == s[x+1]) cout << 2<< endl;
+            else cout << 1 << endl;
+        }
+    } 
 }
 int main() 
 {

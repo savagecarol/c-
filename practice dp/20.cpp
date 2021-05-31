@@ -51,34 +51,28 @@ int powerOfTwo(int n){
         return n && (!(n & (n-1)));
     }
 /*code*/
-int maxSubArraySum(int a[], int size)
-{
-    int max_so_far = INT_MIN, max_ending_here = 0;
-    for (int i = 0; i < size; i++)
-    {
-        max_ending_here = max_ending_here + a[i];
-        if (max_so_far < max_ending_here)
-            max_so_far = max_ending_here;
- 
-        if (max_ending_here < 0)
-            max_ending_here = 0;
-    }
-    return max_so_far;
-}
-
 void solve() 
 {
-    ll n , k;
-    cin >> n >> k;
-    int sum = 0;
-    int a[n];
-    for(ll i = 0 ; i < n;i++)
+    ll n;
+    cin >> n;
+
+    vector<ll> dp(n+1 , 0);
+    dp[2] = 1;
+    for(ll i = 3 ; i <= n;i++)
     {
-        ll x;
-        cin >> x;
-        a[i] = x*(i+1); 
+        bool var = false;
+        for(ll j = 2 ; j<=i/2;j++)
+        {
+            if(i%j==0){
+                dp[i] = max(dp[i] , dp[j]);
+                var = true;
+                break;
+            }  
+        }
+        if(!var)dp[i]= dp[i-1]+1;
     }
-    cout <<maxSubArraySum(a,n);
+    out(i , n , dp);
+    cout << dp[n];
 }
 int main() 
 {
