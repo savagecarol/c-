@@ -50,52 +50,33 @@ int powerOfTwo(int n){
         return n && (!(n & (n-1)));
     }
 /*code*/
+ int cal(int num){
+	int ans = 0;
+	while (num){
+		ans += num % 10;
+		num /= 10;
+	}
+	return ans;
+}
 void solve() 
 {
-    ll n , q;
-    cin >> n >> q;
-    string s;
-    cin >> s;
-    for(ll i = 0 ; i < q ;i++)
-    {
-        ll x , y;
-        cin >> x >> y;
-        x-- , y--;
-        bool r = false;
-        for(ll j = 0 ; j < x ;j++)
-        {
-            if(s[j] == s[x])
-            {
-                r=true;
-                yes();
-                break;
-            }
-
-        }
-        if(r==false)
-        {
-        for(ll j = y+1 ; j<n ;j++)
-        {
-            if(s[j] == s[y])
-            {
-                r=true;
-                yes();
-                break;
-            }
-        }
-        }
-        if(r==false)
-        {
-            no();
-        }
-        cout << endl;
+    int n, v;
+    cin >> n >> v;
+    if (n-1 <= v) {
+        cout << n-1;
+        return ;
     }
-}
 
+    int result = v - 1;
+    for(int i = 1; i <= n - v; ++i) {
+        result += i;
+    }
+    cout << result ;
+}
 int main() 
 {
     ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();

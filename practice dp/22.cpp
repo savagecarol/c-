@@ -52,50 +52,29 @@ int powerOfTwo(int n){
 /*code*/
 void solve() 
 {
-    ll n , q;
-    cin >> n >> q;
-    string s;
-    cin >> s;
-    for(ll i = 0 ; i < q ;i++)
+    ll n;
+    cin >> n;
+    ll a[n];
+    inp(i , n  ,  a);
+    ll i,k=1,m=1,x;
+    for(i=0; i<n-1; i++)
     {
-        ll x , y;
-        cin >> x >> y;
-        x-- , y--;
-        bool r = false;
-        for(ll j = 0 ; j < x ;j++)
+        x=a[i];
+        if(2*x>=a[i+1])
         {
-            if(s[j] == s[x])
-            {
-                r=true;
-                yes();
-                break;
-            }
-
+            ++k;
+            if(k>m)
+                m=k;
         }
-        if(r==false)
-        {
-        for(ll j = y+1 ; j<n ;j++)
-        {
-            if(s[j] == s[y])
-            {
-                r=true;
-                yes();
-                break;
-            }
-        }
-        }
-        if(r==false)
-        {
-            no();
-        }
-        cout << endl;
+        else
+            k=1;
     }
+    cout<<m;
 }
-
 int main() 
 {
     ll t;
-    cin >> t;
+    t=1;
 	while(t--)
 	{
 	   solve();

@@ -50,48 +50,62 @@ int powerOfTwo(int n){
         return n && (!(n & (n-1)));
     }
 /*code*/
+ int cal(int num){
+	int ans = 0;
+	while (num){
+		ans += num % 10;
+		num /= 10;
+	}
+	return ans;
+}
 void solve() 
 {
-    ll n , q;
-    cin >> n >> q;
-    string s;
-    cin >> s;
-    for(ll i = 0 ; i < q ;i++)
+    ll n , m , x , y;
+    cin >> n >> m >> x >> y;
+    vector<string> a;
+    for(ll i = 0 ; i < n ;i++)
     {
-        ll x , y;
-        cin >> x >> y;
-        x-- , y--;
-        bool r = false;
-        for(ll j = 0 ; j < x ;j++)
+        string x;
+        cin >> x;
+        a.push_back(x);
+    }
+    
+    ll count = 0;
+    if(2*x<=y)
+    {
+        for(ll i = 0 ; i < n ;i++)
         {
-            if(s[j] == s[x])
+            for(ll j = 0 ; j < m ;j++)
             {
-                r=true;
-                yes();
-                break;
-            }
-
-        }
-        if(r==false)
-        {
-        for(ll j = y+1 ; j<n ;j++)
-        {
-            if(s[j] == s[y])
-            {
-                r=true;
-                yes();
-                break;
+                if(a[i][j] =='.')count++;
             }
         }
-        }
-        if(r==false)
+      cout << count * x;
+    }
+    else
+    {  
+        for(ll i = 0 ; i < n ;i++)
         {
-            no();
+            for(ll j = 0 ; j < m;)
+            {
+                if(a[i][j] == '.' && j+1<m && a[i][j+1] == '.')
+                {
+                    count = count + y;
+                    j++;
+                    j++;
+                }
+                else if(a[i][j] == '.' )
+                {
+                    count = count + x;
+                    j++;
+                }
+                else
+                    j++;
+            }
         }
-        cout << endl;
+        cout << count;
     }
 }
-
 int main() 
 {
     ll t;
@@ -99,6 +113,7 @@ int main()
 	while(t--)
 	{
 	   solve();
+       cout << endl;
 	}
 	return 0;
 }
