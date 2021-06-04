@@ -52,13 +52,23 @@ int powerOfTwo(int n){
 /*code*/
  void solve() 
 {
+    ll a, b, c , d;
+    cin >> a >> b >> c >> d;
+    if(max(a,b)> min(c,d) && max(c,d) > min(a,b))
+        yes();
+    else
+    no();
     
-
-
 }
 int main() 
 {
-	solve();
+    ll t;
+    cin >> t;
+	while(t--)
+	{
+	   solve();
+       cout << endl;
+	}
 	return 0;
 }
 

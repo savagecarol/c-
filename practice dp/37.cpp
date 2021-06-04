@@ -52,51 +52,52 @@ int powerOfTwo(int n){
 /*code*/
  void solve() 
 {
-    ll n;
-    cin >> n;
-    vector<ll> o;
-    vector<ll> e;
-    ll x;
-    for(ll i = 0 ; i < n ;i++)
-    { 
-        cin >> x;
-        if(x%2==0)e.push_back(x);
-        else o.push_back(x);
-    }
-    sort(e.rbegin(),e.rend());
-    sort(o.rbegin(),o.rend());
-    ll p = e.size();
-    ll q = o.size();
-    ll s= 0 , t = 0;
-    ll a[n];
-    for(ll i = 0 ; i < n ; i++)
+    string s;
+    cin >> s;
+    ll n = s.length();
+    vector<ll> dp(n, 0);
+    ll ans =1;
+    ll start = 0;
+    dp[0]=ans;
+    for(ll i = 1 ; i < n ; i++)
     {
-        if(s<p)
-           {
-                a[i]=e[s];
-                s++;
-           }
-        else if(t<q)
-        {
-            a[i] = o[t];
-            t++;
-        }
+        if(s[i-1] == '?')
+            {
+                if(i-2>=0)
+                {
+                    if(s[i] == s[i-2])
+                       {
+                            ans = (ans) + ((ans)*(ans+1))/2; 
+                            dp[i] = dp[i-1] + ans;
+                       }
+                    else
+                    {
+                        ans = 1;
+                        dp[i] = dp[i-1]+ans;
+                    }
+                }
+                else
+                {
+                    ans = (ans) + ((ans)*(ans+1))/2;
+                    dp[i] = dp[i-1] +ans;
+                }
+            }
+        else 
+             {  
+                if(s[i] == s[i-1])
+                {
+                    ans = 1;
+                    dp[i] = dp[i-1]+ans;
+                }
+                else
+                 {
+                    ans = (ans) + ((ans)*(ans+1))/2;
+                    dp[i] = dp[i-1] +ans;
+                }
+            }
     }
 
-    ll count = 0;
-    for(ll i = 0 ; i < n ; i++)
-    {
-        if(a[i]%2!=0)
-        {
-        for(ll j = i+1 ; j < n;j++)
-            {
-                if(__gcd(a[i], 2*a[j])>1)count++;
-            }
-        }
-        else
-            count = count + n-i-1;
-    }
-    cout << count;
+    out(i , n , dp);
 }
 int main() 
 {
@@ -109,4 +110,3 @@ int main()
 	}
 	return 0;
 }
-
