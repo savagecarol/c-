@@ -52,6 +52,19 @@ int powerOfTwo(int n){
 /*code*/
  void solve() 
 {
+    ll n;
+    cin >> n;
+    ll a[n];
+    ll sum = 0;
+    for(ll i = 0 ; i < n;i++)
+    {
+        cin >> a[i];
+        if(a[i] > 10)
+        {
+            sum = sum + a[i] - 10;
+        }
+    }
+    cout << sum;
 }
 int main() 
 {

@@ -52,12 +52,6 @@ int powerOfTwo(int n){
 /*code*/
  void solve() 
 {
-    ll a, b;
-    cin >> a >> b;
-    if(a==b)
-        cout << a;
-    else if(a!=b)
-        cout << 3 - (a+b);
 }
 int main() 
 {

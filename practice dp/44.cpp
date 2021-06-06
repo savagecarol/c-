@@ -52,6 +52,43 @@ int powerOfTwo(int n){
 /*code*/
  void solve() 
 {
+    ll n , m;
+    cin >> n >> m;
+    unordered_map<ll , ll> g;
+    ll x , y;
+    for(ll i = 0 ; i < m ;i++)
+    {
+        cin >> x >>y;
+        g[x] =y;
+    }
+    ll count = 0;
+    for(ll i = 1 ; i <=n ;i++)
+    {
+        count++;
+        queue <ll> p;
+        bool k[n+1] = {false};
+        p.push(i);
+        while(!p.empty())
+        {
+            if(g.find(p.front()) != g.end())
+            {       
+                if(g[p.front()]!=i && k[p.front()] == false)
+                { 
+                 count++;
+                 k[p.front()] = true;   
+                 p.push(g[p.front()]);
+                 p.pop();   
+                }
+                else if(g[p.front()]!=i && k[p.front()] == true)
+                { 
+                 count--; break;  
+                }
+                else break;
+            }
+            else break;
+        }
+    }
+    cout << count;
 }
 int main() 
 {
