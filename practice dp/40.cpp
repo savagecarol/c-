@@ -50,8 +50,19 @@ int powerOfTwo(int n){
         return n && (!(n & (n-1)));
     }
 /*code*/
+ll n,a[1000000]={0},pre[1000000]={0},suf[1000000]={0},ans=0;
+map<ll,ll> m;
  void solve() 
 {
+    ll n;
+    cin >> n;
+    for (int i=1;i<=n;i++) cin>>a[i];
+    pre[0]=0; suf[n+1]=0;
+    for (int i=1;i<=n;i++) pre[i]=pre[i-1]+a[i];
+    for (int i=n;i>0;i--) suf[i]=suf[i+1]+a[i];
+    for (int i=n;i>0;i--) m[suf[i]]=i;
+    for (int i=1;i<=n;i++) if (m.find(pre[i])!=m.end() && m[pre[i]]>i) ans=pre[i];
+    cout<<ans;
 }
 int main() 
 {

@@ -52,41 +52,6 @@ int powerOfTwo(int n){
 /*code*/
  void solve() 
 {
-    ll n , k;
-    cin >> n >> k;
-    vector<ll> a(n);
-    inp(i , n , a);
-    vector<ll> b(n);
-    for(ll i = 0 ; i < n;i++)b[i] = a[i];
-    sort(b.rbegin() , b.rend());
-    ll sum = 0;
-    unordered_map<ll, ll> p;
-    for(ll i = 0 ; i <k;i++)
-    {
-        p[b[i]]++;
-        sum = sum + b[i];
-    }
-    cout << sum << endl;
-    
-    ll count = 0;
-    ll last =0;
-    ll start = 0;
-    for(ll i = 0 ; i < n ; i++)
-    {
-        last++;
-        if(p.find(a[i])!=p.end() && p[a[i]]>0)
-        {
-            if(p.size()==1 && p[a[i]]==1) {
-                 break;
-                }
-            cout << last - start << " ";
-            start = last;
-            p[a[i]]--;
-            if(p[a[i]]==0)
-                p.erase(a[i]);
-        }
-    }
-        cout << n-start;
 }
 int main() 
 {
