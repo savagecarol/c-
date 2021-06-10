@@ -60,13 +60,33 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
+   ll n;
+   cin >> n;
+   ll a[n];
 
+    for(ll i = 0  ; i < n ;i++)
+    {
+        cin >> a[i];
+    }
+
+        ll minn = *min_element(a , a+n);        ll maxx = *max_element(a , a+n);
+
+    ll x = 0;
+    ll y = 0;
+    bool p = false;
+    for(ll i = 0 ;  i < n;i++)
+    {
+        if((a[i] == minn || a[i] == maxx) &&  p == false) {x=i; p = true;}
+        if((a[i] == maxx || a[i] == minn) &&  p == true)  y=i; 
+    }
+    x=x+1;
+    y=y+1;
+    cout << min({ x + (n-y+1) , y ,  n-x+1 }) ;
 }
 int main() 
 {
-
 	ll t;
-    t=1;
+    cin >> t;
 	while(t--)
 	{
 	   solve();
