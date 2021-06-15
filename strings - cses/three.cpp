@@ -60,29 +60,37 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
-    ll n ,  m ;
-    cin >> n >> m;
-    ll a[n][m];
-    for(int i = 0 ; i < n ;i++)
+    ll a , b , c ;
+    cin >> a >> b >> c;
+    if(a>=0 && b>=0 )
     {
-        for(int  j = 0 ; j < m ; j++)
+        if(a>b)cout << ">";
+        else if(a<b)cout << "<";
+        else if(a==b)cout << "=";
+    }
+    if(a<0 && b<0)
+    {
+        if(c%2==0)
         {
-            cin >> a[i][j];
+        if(a>b)cout << "<";
+        else if(b>a)cout << ">";
+        else if(a==b)cout << "=";
+        }
+        else 
+        {
+        if(a>b)cout << ">";
+        else if(a<b)cout << "<";
+        else if(a==b)cout << "=";
         }
     }
 
-    for(int i = 0 ; i < n; i++)
+    if(a<0 && b > 0)
     {
-        for(int j = 0 ; j < m ; j ++ )
-        {
 
-        }
     }
-
 }
 int main() 
 {
-
 	ll t;
     t=1;
 	while(t--)

@@ -60,29 +60,13 @@ int countSetBits(int n){
 /*code*/
 void solve() 
 {
-    ll n ,  m ;
-    cin >> n >> m;
-    ll a[n][m];
-    for(int i = 0 ; i < n ;i++)
-    {
-        for(int  j = 0 ; j < m ; j++)
-        {
-            cin >> a[i][j];
-        }
-    }
 
-    for(int i = 0 ; i < n; i++)
-    {
-        for(int j = 0 ; j < m ; j ++ )
-        {
-
-        }
-    }
-
+    float n  , k;
+    cin >> n >> k ;
+    cout << (n * k) / 100 ;
 }
 int main() 
 {
-
 	ll t;
     t=1;
 	while(t--)

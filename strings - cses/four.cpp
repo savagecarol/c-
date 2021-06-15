@@ -58,37 +58,32 @@ int countSetBits(int n){
         return n && (!(n & (n-1)));
     }
 /*code*/
-void solve() 
-{
-    ll n ,  m ;
-    cin >> n >> m;
-    ll a[n][m];
-    for(int i = 0 ; i < n ;i++)
-    {
-        for(int  j = 0 ; j < m ; j++)
-        {
-            cin >> a[i][j];
-        }
-    }
 
-    for(int i = 0 ; i < n; i++)
-    {
-        for(int j = 0 ; j < m ; j ++ )
-        {
-
-        }
-    }
-
-}
 int main() 
 {
+    ll n , m;
+    cin >> n >> m;
+    ll a[n];
+    inp(i , n , a);
+    set<int> r;
+    for(int i = 0 ; i < n ;i++) r.insert(a[i]);
+    ll s;
+    
+    for(int i = 0 ; i < m ;i++)
+    {
+        cin >> s;
+        ll start  = 1 , end = 1e18;
+        
+        while(start <=end)
+        {
+            ll mid =  (end - start)/2 + start ;
+            if(r.find(mid) == r.end() && end == s)
+            {
+                cout << end << endl;
+            }
+            else end = mid - 1;
+        }
 
-	ll t;
-    t=1;
-	while(t--)
-	{
-	   solve();
-       cout << endl;
-	}
-	return 0;
+    }
+
 }
