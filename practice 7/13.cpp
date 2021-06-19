@@ -29,40 +29,35 @@ typedef pair<ll, ll> pll;
 /*code*/
 int main() 
 {
-	ll t;
+    ll t;
     t=1;
-	while(t--)
-	{
-        ll n , k;
-        cin >> n >> k;
-        int a[n];
-        inp(i , n , a);
-        int x , y;
-
-        vector<int> g[n];
-        for(int i = 0 ; i < n-1 ; i++)
+    while(t--)
+    {
+        ll n;
+        cin >> n;
+               unordered_set<ll> s;
+               ll a[n];
+        for(int i = 0 ; i < n ;i++)
         {
-            cin >> x >> y;
-            g[x-1].push_back(y-1);
+            cin >> a[i];
+            s.insert(a[i]);
         }
-        queue<pair<int , int > > q;
-        q.push({0 , 1});
-        int count = 0;
-        while(!q.empty())
+        ll i = 0 , j = n-1;
+        ll count = 0;
+        while(i <= j)
         {
-            int r = q.front().first;
-            int s = q.front().second;
-            q.pop();
-            bool l = false;
-            for(int i = 0 ; i < g[r].size() ;i++)
-               { 
-                   l=true;
-                   if(a[g[r][i]] == 0 && s<=k){ q.push({g[r][i] , s}); count++;}
-                   else if(a[g[r][i]] == 1 && s<k) q.push({g[r][i] ,s+1});
-               }
-            if( !l && s<=k && a[r] == 1) count++;  
+            if(a[i]!=a[j])
+            {
+                if(s.find(a[i]) != s.end() || s.find(a[j]) != s.end() )
+                    {
+                    s.erase(a[i]);
+                    s.erase(a[j]);
+                    count++;
+                    }
+            }
+            i++; j--;
         }
-    cout << count;
-	}
-	return 0;
+        cout << count;
+       
+    }
 }

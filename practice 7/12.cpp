@@ -29,40 +29,27 @@ typedef pair<ll, ll> pll;
 /*code*/
 int main() 
 {
-	ll t;
+    ll var = 1e5;
+    ll t;
     t=1;
-	while(t--)
-	{
-        ll n , k;
-        cin >> n >> k;
-        int a[n];
-        inp(i , n , a);
-        int x , y;
+    while(t--)
+    {
+        ll n;
+        cin >> n;
+        unordered_map<ll , ll> m;
+        ll a[n];
+        for(ll i = 0 ;i < n ;i++)
+        {
+            cin >> a[i];
+            m[a[i]]++;
+        }
 
-        vector<int> g[n];
-        for(int i = 0 ; i < n-1 ; i++)
+        ll count = 0;
+        for(ll i = 0 ; i < n-1;i++)
         {
-            cin >> x >> y;
-            g[x-1].push_back(y-1);
+            m[a[i]]--;
+            count+= (n-(i+1)) - m[a[i]];
         }
-        queue<pair<int , int > > q;
-        q.push({0 , 1});
-        int count = 0;
-        while(!q.empty())
-        {
-            int r = q.front().first;
-            int s = q.front().second;
-            q.pop();
-            bool l = false;
-            for(int i = 0 ; i < g[r].size() ;i++)
-               { 
-                   l=true;
-                   if(a[g[r][i]] == 0 && s<=k){ q.push({g[r][i] , s}); count++;}
-                   else if(a[g[r][i]] == 1 && s<k) q.push({g[r][i] ,s+1});
-               }
-            if( !l && s<=k && a[r] == 1) count++;  
-        }
-    cout << count;
-	}
-	return 0;
+        cout << count;
+ }
 }

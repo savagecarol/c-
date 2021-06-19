@@ -30,39 +30,36 @@ typedef pair<ll, ll> pll;
 int main() 
 {
 	ll t;
-    t=1;
+    cin >> t;
 	while(t--)
 	{
-        ll n , k;
-        cin >> n >> k;
-        int a[n];
-        inp(i , n , a);
-        int x , y;
+        ll n , m , x, y ;
+        cin >> n >> m >> x >> y ;
 
-        vector<int> g[n];
-        for(int i = 0 ; i < n-1 ; i++)
-        {
-            cin >> x >> y;
-            g[x-1].push_back(y-1);
-        }
-        queue<pair<int , int > > q;
-        q.push({0 , 1});
-        int count = 0;
-        while(!q.empty())
-        {
-            int r = q.front().first;
-            int s = q.front().second;
-            q.pop();
-            bool l = false;
-            for(int i = 0 ; i < g[r].size() ;i++)
-               { 
-                   l=true;
-                   if(a[g[r][i]] == 0 && s<=k){ q.push({g[r][i] , s}); count++;}
-                   else if(a[g[r][i]] == 1 && s<k) q.push({g[r][i] ,s+1});
-               }
-            if( !l && s<=k && a[r] == 1) count++;  
-        }
-    cout << count;
+        if(n==1 && m == 1 && x ==1 && y==1 )
+            cout << 1 << " " << 1 << " " << 1 << " " << 1;
+
+    if(x==1 && y==1)
+    {
+        if(n>=2)
+            cout << 2 << " " << 1 << " ";
+        else if(m>=2)
+            cout << 1 << " " << 2 << " ";
+    }
+    else 
+        cout << 1 << " " << 1 << " ";
+
+
+    if(x==n && y==m)
+    {    
+        if(n>=2)
+            cout << n-1 << " " << m;
+        else if(m>=2)
+            cout << n << " " << m-1;
+    }
+    else
+        cout << n << " " << m ;        
+	cout << endl;	
 	}
 	return 0;
 }

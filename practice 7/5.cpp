@@ -33,36 +33,21 @@ int main()
     t=1;
 	while(t--)
 	{
-        ll n , k;
-        cin >> n >> k;
-        int a[n];
-        inp(i , n , a);
-        int x , y;
-
-        vector<int> g[n];
-        for(int i = 0 ; i < n-1 ; i++)
-        {
-            cin >> x >> y;
-            g[x-1].push_back(y-1);
-        }
-        queue<pair<int , int > > q;
-        q.push({0 , 1});
-        int count = 0;
-        while(!q.empty())
-        {
-            int r = q.front().first;
-            int s = q.front().second;
-            q.pop();
-            bool l = false;
-            for(int i = 0 ; i < g[r].size() ;i++)
-               { 
-                   l=true;
-                   if(a[g[r][i]] == 0 && s<=k){ q.push({g[r][i] , s}); count++;}
-                   else if(a[g[r][i]] == 1 && s<k) q.push({g[r][i] ,s+1});
-               }
-            if( !l && s<=k && a[r] == 1) count++;  
-        }
-    cout << count;
+    int n , m ;
+    cin>>n>>m;
+    int ar[n];
+	for (int i=0;i<n;i++)
+	{
+		cin>>ar[i];
+	}
+	sort(ar,ar+n);
+	for (int i=0;i<m;i++)
+	    {
+		int val;
+		cin>>val;
+		int cnt=lower_bound(ar,ar+n,val+1)-ar;
+		cout<<cnt << " ";
+	    }
 	}
 	return 0;
 }

@@ -30,39 +30,22 @@ typedef pair<ll, ll> pll;
 int main() 
 {
 	ll t;
-    t=1;
+    cin >> t;
 	while(t--)
 	{
-        ll n , k;
-        cin >> n >> k;
-        int a[n];
-        inp(i , n , a);
-        int x , y;
+		ll n;
+		cin >> n;
+		ll a[n];
+		inp(i ,  n , a);
+		ll sum = 0;
+		arrs(i ,  n ,a , sum);
+		double p = (double)sum / (double)n;
 
-        vector<int> g[n];
-        for(int i = 0 ; i < n-1 ; i++)
-        {
-            cin >> x >> y;
-            g[x-1].push_back(y-1);
-        }
-        queue<pair<int , int > > q;
-        q.push({0 , 1});
-        int count = 0;
-        while(!q.empty())
-        {
-            int r = q.front().first;
-            int s = q.front().second;
-            q.pop();
-            bool l = false;
-            for(int i = 0 ; i < g[r].size() ;i++)
-               { 
-                   l=true;
-                   if(a[g[r][i]] == 0 && s<=k){ q.push({g[r][i] , s}); count++;}
-                   else if(a[g[r][i]] == 1 && s<k) q.push({g[r][i] ,s+1});
-               }
-            if( !l && s<=k && a[r] == 1) count++;  
-        }
-    cout << count;
+		if(p==1) cout << 0 ;
+		else if(sum > n) cout << sum - n;
+		else if(sum < n) cout << 1;
+		cout << endl;
+		
 	}
 	return 0;
 }
