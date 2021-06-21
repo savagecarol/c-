@@ -30,19 +30,44 @@ typedef pair<ll, ll> pll;
 int main() 
 {
     ll t;
-    t=1;
+    cin >> t;
     while(t--)
     {
-        ll n , k;
-        cin >> n >> k;    
-        ll a[123456];
-        for(int i = 1; i < n ;i++) cin >> a [i];
-        ll x = 1;
-        while(x<k)
+        ll n;
+        cin >> n;
+        string s;
+        cin >> s;
+        s = s + s;
+        ll p = INT_MAX;
+        ll i , j;
+        for(i = 0 ; i <2*n;)
         {
-            x = x+a[x];
+            if(s[i] == '1')
+            { 
+             j = i+1;
+             for( j = i+1 ; j < 2*n ; j++)
+                if(s[j] == '1') break;
+            cout << j-i << endl;
+             p = min(p , j-i);
+             i=j;
+            }
+            else i++;
         }
-        if(x==k) yes();
-        else no();
+        if(p==n)
+            cout << 0;
+        else
+        {
+        ll count = 0;   
+        for(int i = 0 ; i <2*n ;i++)
+            {
+                if(s[i] == '1' && s[i+p]!='1')
+                {
+                    count++;
+                    s[i+p] = '1';
+                }
+            }
+            cout << count;
+        }
+        cout << endl;
     }
 }

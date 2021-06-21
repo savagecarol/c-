@@ -33,16 +33,25 @@ int main()
     t=1;
     while(t--)
     {
-        ll n , k;
-        cin >> n >> k;    
-        ll a[123456];
-        for(int i = 1; i < n ;i++) cin >> a [i];
-        ll x = 1;
-        while(x<k)
+        ll n , q;
+        cin >> n >> q;
+        ll a[n];
+        map<ll , ll> m;
+        inp(i , n ,  a);
+        sort(a  , a+n);
+        for(ll i = 0 ; i < n ;i++) m[a[i]] = i;
+        ll r;
+        for(ll i = 0 ; i < q ;i++)
         {
-            x = x+a[x];
+            cin >> r;
+            if(m.find(r)!=m.end())
+                cout << "0";
+            else 
+            {
+                if( (n-m.lower_bound(r)-> second ) %2 == 0)cout << "POSITIVE";
+                else cout << "NEGATIVE";
+            }
+            cout << endl;
         }
-        if(x==k) yes();
-        else no();
     }
 }

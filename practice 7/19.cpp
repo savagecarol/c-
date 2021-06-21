@@ -30,19 +30,14 @@ typedef pair<ll, ll> pll;
 int main() 
 {
     ll t;
-    t=1;
+    cin >> t;
     while(t--)
     {
-        ll n , k;
-        cin >> n >> k;    
-        ll a[123456];
-        for(int i = 1; i < n ;i++) cin >> a [i];
-        ll x = 1;
-        while(x<k)
-        {
-            x = x+a[x];
-        }
-        if(x==k) yes();
-        else no();
+        ll p , q , l ,  r;
+        cin >> p >> q >> l >> r ;
+        ll start = l/q;
+        ll end = r/q;
+        ll total = p/q ;
+        cout << p/q - (r/q - (l-1)/q) << endl ;
     }
 }

@@ -33,16 +33,24 @@ int main()
     t=1;
     while(t--)
     {
-        ll n , k;
-        cin >> n >> k;    
-        ll a[123456];
-        for(int i = 1; i < n ;i++) cin >> a [i];
-        ll x = 1;
-        while(x<k)
+        ll n , pos;
+        cin >> n >> pos;
+        ll a[n];
+        inp(i , n , a);
+        bool p[n] ={false};
+        
+        for(int i = 0 ; i < n ;i++)
         {
-            x = x+a[x];
+            if(a[i] == 1)
+            {
+                
+
+
+
+
+
+            }
+
         }
-        if(x==k) yes();
-        else no();
     }
 }

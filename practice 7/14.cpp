@@ -33,6 +33,8 @@ int main()
     t=1;
     while(t--)
     {
+        ll n;
+        cin >> n;
 
        
     }
