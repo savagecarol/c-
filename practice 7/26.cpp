@@ -29,11 +29,6 @@ typedef pair<ll, ll> pll;
 /*code*/
 int main() 
 {
-    ll t;
-    cin >> t;
-    while(t--)
-    {
-        cout << fixed << setprecision(30) << float(1) / float(3) <<endl;
-    }
-    return 0;
+   char s[2][80] ={"Hello world, Good world"};
+   printf("%c" , s [1][0]); 
 }
