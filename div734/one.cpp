@@ -29,24 +29,7 @@ typedef pair<ll, ll> pll;
 /*code*/
 int main() 
 {
-    ll t;
-    // t=1;
-    cin >> t;
-    while(t--)
-    {   
-        ll n;
-        cin >> n;
-        if(n%3==0)
-        {
-            cout << n/3 << " " << n/3;
-        }
-        else
-        {
-            if(n%3==1)
-            cout << n/3+1 << " " << n/3 ;
-            if(n%3==2)
-            cout << n/3 << " " << n/3 +1;
-        }
-        cout << endl;
-    }
+    int b = 1;
+    int a = (b++) + (++b) + (b++) + (b++);
+    cout << a << " " << b << endl;     
 }
